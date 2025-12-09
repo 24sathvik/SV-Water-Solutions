@@ -90,6 +90,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   html {
@@ -104,6 +106,14 @@
   img {
     content-visibility: auto;
   }
+
+  /* GPU acceleration for smoother animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
+  }
 }
 
 nextjs-portal {
@@ -115,12 +125,17 @@ nextjs-portal {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  .transition-ultra-smooth {
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateZ(0);
   }
 
   .hover-lift:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) translateZ(0);
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
@@ -137,14 +152,22 @@ nextjs-portal {
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
+    will-change: transform;
   }
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
+    will-change: box-shadow;
   }
 
   .animate-shimmer {
     animation: shimmer 2s linear infinite;
+    will-change: background-position;
+  }
+
+  .animate-bubble-rise {
+    animation: bubbleRise 8s ease-in-out infinite;
+    will-change: transform, opacity;
   }
 
   .glass {
@@ -160,14 +183,37 @@ nextjs-portal {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  /* Smooth page content fade */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .page-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .page-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) translateZ(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-20px) translateZ(0);
   }
 }
 
@@ -186,6 +232,26 @@ nextjs-portal {
   }
   100% {
     background-position: 200% 0;
+  }
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(100%) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50%) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10%) translateX(-5px) scale(0.8);
+    opacity: 0;
   }
 }
 
@@ -222,6 +288,19 @@ nextjs-portal {
 
 .animate-water-wave {
   animation: water-wave 3s linear infinite;
+  will-change: transform;
+}
+
+/* Smooth scrolling for all scrollable elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Optimize animations on scroll */
+@supports (animation-timeline: scroll()) {
+  .scroll-animate {
+    animation-timeline: scroll();
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -231,5 +310,14 @@ nextjs-portal {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile-specific optimizations for smooth animations */
+@media (max-width: 768px) {
+  .animate-float,
+  .animate-bubble-rise {
+    animation-duration: 10s;
   }
 }
