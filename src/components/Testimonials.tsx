@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
+import { motion, useInView, useSpring, useTransform } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Star, Quote } from 'lucide-react'
 
@@ -62,88 +63,176 @@ const testimonials = [
   },
 ]
 
-export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0)
+function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const spring = useSpring(0, { duration: 2000 })
+  const display = useTransform(spring, (current) => Math.floor(current))
+  const [displayValue, setDisplayValue] = useState(0)
+
+  useEffect(() => {
+    if (isInView) {
+      spring.set(value)
+    }
+  }, [isInView, spring, value])
+
+  useEffect(() => {
+    return display.on("change", (v) => setDisplayValue(v))
+  }, [display])
 
   return (
-    <section className="bg-charcoal py-16 text-white lg:py-24">
+    <span ref={ref}>
+      {displayValue.toLocaleString()}{suffix}
+    </span>
+  )
+}
+
+export default function Testimonials() {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  }
+
+  const stats = [
+    { value: 4.9, suffix: '/5', label: 'Average Rating' },
+    { value: 10000, suffix: '+', label: 'Happy Customers' },
+    { value: 5000, suffix: '+', label: '5-Star Reviews' },
+    { value: 99, suffix: '%', label: 'Satisfaction Rate' }
+  ]
+
+  return (
+    <section ref={sectionRef} className="bg-charcoal py-20 text-white lg:py-28 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-12 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-aqua/10 px-4 py-2">
+        <motion.div 
+          className="mb-14 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.div 
+            className="mb-4 inline-flex items-center gap-2 rounded-full bg-aqua/10 px-5 py-2.5 border border-aqua/20"
+            whileHover={{ scale: 1.05 }}
+          >
             <Star className="h-4 w-4 fill-aqua text-aqua" />
             <span className="text-sm font-medium text-aqua">Customer Reviews</span>
-          </div>
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          </motion.div>
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
             Trusted by Thousands
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-400">
             See what our satisfied customers have to say about their experience with SV Water Solutions
           </p>
-        </div>
+        </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div 
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {testimonials.map((testimonial, index) => (
-            <Card
+            <motion.div
               key={testimonial.id}
-              className="border-0 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+              variants={itemVariants}
             >
-              <CardContent className="p-6">
-                {/* Quote Icon */}
-                <Quote className="mb-4 h-10 w-10 text-aqua/30" />
+              <motion.div
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <Card className="h-full border-0 bg-white/5 backdrop-blur-sm transition-all duration-500 hover:bg-white/10 hover:shadow-xl hover:shadow-aqua/5">
+                  <CardContent className="p-6">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
+                    >
+                      <Quote className="mb-4 h-10 w-10 text-aqua/30" />
+                    </motion.div>
 
-                {/* Rating */}
-                <div className="mb-4 flex gap-1">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-
-                {/* Testimonial Text */}
-                <p className="mb-6 text-gray-300">{testimonial.text}</p>
-
-                {/* Author Info */}
-                <div className="flex items-center gap-4">
-                  <div className="relative h-12 w-12 overflow-hidden rounded-full">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-gray-400">
-                      {testimonial.role} • {testimonial.location}
+                    <div className="mb-4 flex gap-1">
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                          transition={{ delay: 0.4 + index * 0.05 + i * 0.05, type: "spring" }}
+                        >
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        </motion.div>
+                      ))}
                     </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
 
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 gap-8 border-t border-white/10 pt-12 md:grid-cols-4">
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold text-aqua">4.9/5</div>
-            <div className="text-sm text-gray-400">Average Rating</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold text-aqua">10,000+</div>
-            <div className="text-sm text-gray-400">Happy Customers</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold text-aqua">5,000+</div>
-            <div className="text-sm text-gray-400">5-Star Reviews</div>
-          </div>
-          <div className="text-center">
-            <div className="mb-2 text-4xl font-bold text-aqua">99%</div>
-            <div className="text-sm text-gray-400">Satisfaction Rate</div>
-          </div>
-        </div>
+                    <p className="mb-6 text-gray-300 leading-relaxed">{testimonial.text}</p>
+
+                    <div className="flex items-center gap-4">
+                      <motion.div 
+                        className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-aqua/20"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </motion.div>
+                      <div>
+                        <div className="font-semibold">{testimonial.name}</div>
+                        <div className="text-sm text-gray-400">
+                          {testimonial.role} • {testimonial.location}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div 
+          className="mt-16 grid grid-cols-2 gap-8 border-t border-white/10 pt-12 md:grid-cols-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.8, duration: 0.6 }}
+        >
+          {stats.map((stat, index) => (
+            <motion.div 
+              key={stat.label}
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 1 + index * 0.1 }}
+            >
+              <div className="mb-2 text-4xl font-bold text-aqua">
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="text-sm text-gray-400">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
