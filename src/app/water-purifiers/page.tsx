@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Slider } from '@/components/ui/slider'
 import { Star, Filter, SlidersHorizontal } from 'lucide-react'
 import { products } from '@/lib/products'
+import type { Metadata } from 'next'
 
 const categories = ['All', 'RO System', 'UV System', 'Water Softener', 'Alkaline System', 'Gravity Filter']
 
@@ -245,4 +246,14 @@ export default function WaterPurifiersPage() {
       </div>
     </main>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'Water Purifiers - Browse Our Complete Range',
+  description: 'Explore our comprehensive range of water purifiers including RO systems, UV purifiers, water softeners, and alkaline systems. Find the perfect water purification solution for your needs.',
+  openGraph: {
+    title: 'Water Purifiers - Browse Our Complete Range',
+    description: 'Explore our comprehensive range of water purifiers. Find the perfect solution for your needs.',
+    type: 'website',
+  },
 }

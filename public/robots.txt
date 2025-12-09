@@ -1,0 +1,13 @@
+# robots.txt for SV Water Solutions
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://svwatersolutions.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /admin/
