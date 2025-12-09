@@ -1,6 +1,8 @@
 "use client"
 
+import { useRef } from 'react'
 import Link from 'next/link'
+import { motion, useInView } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Home, Building2, Factory, ArrowRight } from 'lucide-react'
@@ -33,85 +35,148 @@ const solutions = [
 ]
 
 export default function SolutionsOverview() {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  }
+
   return (
-    <section className="bg-off-white py-16 lg:py-24">
+    <section ref={sectionRef} className="bg-off-white py-20 lg:py-28 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-charcoal md:text-4xl">
+        <motion.div 
+          className="mb-14 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h2 className="mb-4 text-3xl font-bold text-charcoal md:text-4xl lg:text-5xl">
             Water Solutions for Every Need
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Whether you need purification for your home, business, or industry, we have the perfect solution
           </p>
-        </div>
+        </motion.div>
 
-        {/* Solutions Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((solution) => {
+        <motion.div 
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {solutions.map((solution, index) => {
             const Icon = solution.icon
             return (
-              <Card
+              <motion.div
                 key={solution.title}
-                className="group relative overflow-hidden border-0 bg-white shadow-lg transition-all duration-300 hover:shadow-2xl"
+                variants={itemVariants}
               >
-                {/* Background Image */}
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10">
-                  <div
-                    className="h-full w-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${solution.image})` }}
-                  />
-                </div>
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <Card className="group relative h-full overflow-hidden border-0 bg-white shadow-lg transition-shadow duration-500 hover:shadow-2xl">
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-5">
+                      <div
+                        className="h-full w-full bg-cover bg-center"
+                        style={{ backgroundImage: `url(${solution.image})` }}
+                      />
+                    </div>
 
-                <div className="relative p-8">
-                  {/* Icon */}
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-aqua/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-aqua">
-                    <Icon className="h-8 w-8 text-aqua transition-colors duration-300 group-hover:text-white" />
-                  </div>
+                    <div className="relative p-8">
+                      <motion.div 
+                        className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-aqua/10 transition-all duration-500 group-hover:bg-aqua"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                      >
+                        <Icon className="h-8 w-8 text-aqua transition-colors duration-500 group-hover:text-white" />
+                      </motion.div>
 
-                  {/* Content */}
-                  <h3 className="mb-3 text-2xl font-bold text-charcoal">{solution.title}</h3>
-                  <p className="mb-6 text-muted-foreground">{solution.description}</p>
+                      <h3 className="mb-3 text-2xl font-bold text-charcoal">{solution.title}</h3>
+                      <p className="mb-6 text-muted-foreground leading-relaxed">{solution.description}</p>
 
-                  {/* Features */}
-                  <ul className="mb-6 space-y-2">
-                    {solution.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm">
-                        <div className="h-1.5 w-1.5 rounded-full bg-aqua" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                      <ul className="mb-6 space-y-2">
+                        {solution.features.map((feature, featureIndex) => (
+                          <motion.li 
+                            key={feature} 
+                            className="flex items-center gap-2 text-sm"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ delay: 0.5 + index * 0.1 + featureIndex * 0.1 }}
+                          >
+                            <motion.div 
+                              className="h-1.5 w-1.5 rounded-full bg-aqua"
+                              animate={{ scale: [1, 1.2, 1] }}
+                              transition={{ duration: 2, repeat: Infinity, delay: featureIndex * 0.2 }}
+                            />
+                            <span className="text-muted-foreground">{feature}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
 
-                  {/* CTA */}
-                  <Button
-                    variant="ghost"
-                    className="group/btn -ml-4 text-aqua hover:text-aqua-dark"
-                    asChild
-                  >
-                    <Link href="/water-solutions">
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </Link>
-                  </Button>
-                </div>
+                      <Button
+                        variant="ghost"
+                        className="group/btn -ml-4 text-aqua hover:text-aqua-dark hover:bg-aqua/10"
+                        asChild
+                      >
+                        <Link href="/water-solutions">
+                          Learn More
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-2" />
+                        </Link>
+                      </Button>
+                    </div>
 
-                {/* Hover Border Effect */}
-                <div className="absolute bottom-0 left-0 h-1 w-0 bg-aqua transition-all duration-300 group-hover:w-full" />
-              </Card>
+                    <motion.div 
+                      className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-aqua to-cyan-400"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.4 }}
+                    />
+                  </Card>
+                </motion.div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <p className="mb-4 text-muted-foreground">
+        <motion.div 
+          className="mt-14 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <p className="mb-5 text-muted-foreground">
             Not sure which solution is right for you?
           </p>
-          <Button size="lg" asChild className="bg-aqua text-white hover:bg-aqua-dark">
-            <Link href="/contact">Get Free Consultation</Link>
-          </Button>
-        </div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <Button 
+              size="lg" 
+              asChild 
+              className="bg-aqua px-8 py-6 text-base font-semibold text-white transition-all duration-300 hover:bg-charcoal hover:shadow-xl"
+            >
+              <Link href="/contact">Get Free Consultation</Link>
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
