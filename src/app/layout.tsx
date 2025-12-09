@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import WaterBubbles from "@/components/WaterBubbles";
+import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   title: {
@@ -86,8 +88,11 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
+        <WaterBubbles />
         <Header />
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
         <Footer />
         <WhatsAppFloatingButton />
         <ScrollToTop />
