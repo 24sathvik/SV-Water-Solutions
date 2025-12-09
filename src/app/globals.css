@@ -98,21 +98,8 @@
     scroll-behavior: smooth;
   }
 
-  .animate-in {
-    opacity: 1 !important;
-    transform: translate(0, 0) !important;
-  }
-
   img {
     content-visibility: auto;
-  }
-
-  /* GPU acceleration for smoother animations */
-  .gpu-accelerated {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-    will-change: transform, opacity;
   }
 }
 
@@ -121,53 +108,11 @@ nextjs-portal {
 }
 
 @layer utilities {
-  .transition-smooth {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .transition-ultra-smooth {
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .hover-lift {
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    transform: translateZ(0);
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-4px) translateZ(0);
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  }
-
   .text-gradient {
     background: linear-gradient(135deg, var(--color-aqua) 0%, #00e5f7 50%, var(--color-aqua) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite;
-    will-change: box-shadow;
-  }
-
-  .animate-shimmer {
-    animation: shimmer 2s linear infinite;
-    will-change: background-position;
-  }
-
-  .animate-bubble-rise {
-    animation: bubbleRise 8s ease-in-out infinite;
-    will-change: transform, opacity;
   }
 
   .glass {
@@ -183,126 +128,132 @@ nextjs-portal {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+}
 
-  /* Smooth page content fade */
-  .page-enter {
-    opacity: 0;
-    transform: translateY(20px);
+/* Optimized CSS Animations - GPU accelerated with transform only */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
   }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
 
-  .page-enter-active {
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes wave-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes wave-slide-slow {
+  from { transform: translateX(-25%); }
+  to { transform: translateX(25%); }
+}
+
+@keyframes splash-across {
+  0% { 
+    transform: translateX(-10vw) translateY(0);
+    opacity: 0;
+  }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.6; }
+  100% { 
+    transform: translateX(110vw) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-rise-simple {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes width-expand {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes scroll-indicator {
+  0%, 100% { 
+    opacity: 0.5;
+    height: 6px;
+  }
+  50% { 
     opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .page-exit {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .page-exit-active {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    height: 12px;
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) translateZ(0);
-  }
-  50% {
-    transform: translateY(-20px) translateZ(0);
-  }
+/* Animation utility classes */
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  opacity: 0;
 }
 
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 200, 215, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(0, 200, 215, 0.6);
-  }
+.animate-fade-slide-up {
+  animation: fade-slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+.animate-float-gentle {
+  animation: float-gentle 5s ease-in-out infinite;
 }
 
-@keyframes bubbleRise {
-  0% {
-    transform: translateY(100%) translateX(0) scale(0.5);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(50%) translateX(10px) scale(1);
-  }
-  90% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-10%) translateX(-5px) scale(0.8);
-    opacity: 0;
-  }
+.animate-wave-slide {
+  animation: wave-slide 12s linear infinite;
 }
 
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 200, 215, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 15px rgba(0, 200, 215, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 200, 215, 0);
-  }
+.animate-wave-slide-slow {
+  animation: wave-slide-slow 16s linear infinite;
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+.animate-splash-across {
+  animation: splash-across 5s ease-out infinite;
 }
 
-@keyframes water-wave {
-  0% {
-    transform: translateX(0) translateZ(0) scaleY(1);
-  }
-  50% {
-    transform: translateX(-25%) translateZ(0) scaleY(0.55);
-  }
-  100% {
-    transform: translateX(-50%) translateZ(0) scaleY(1);
-  }
+.animate-bubble-rise-simple {
+  animation: bubble-rise-simple 10s linear infinite;
 }
 
-.animate-water-wave {
-  animation: water-wave 3s linear infinite;
-  will-change: transform;
+.animate-width-expand {
+  animation: width-expand 0.8s ease-out forwards;
+  width: 0;
 }
 
-/* Smooth scrolling for all scrollable elements */
-* {
-  scroll-behavior: smooth;
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
 }
 
-/* Optimize animations on scroll */
-@supports (animation-timeline: scroll()) {
-  .scroll-animate {
-    animation-timeline: scroll();
-  }
+.animate-scroll-indicator {
+  animation: scroll-indicator 1.5s ease-in-out infinite;
 }
 
+/* Accessibility - Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -312,12 +263,32 @@ nextjs-portal {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  
+  .animate-fade-in,
+  .animate-fade-slide-up {
+    opacity: 1;
+  }
+  
+  .animate-width-expand {
+    width: 100%;
+  }
 }
 
-/* Mobile-specific optimizations for smooth animations */
+/* Mobile optimizations */
 @media (max-width: 768px) {
-  .animate-float,
-  .animate-bubble-rise {
-    animation-duration: 10s;
+  .animate-float-gentle {
+    animation-duration: 6s;
+  }
+  
+  .animate-wave-slide {
+    animation-duration: 16s;
+  }
+  
+  .animate-wave-slide-slow {
+    animation-duration: 20s;
+  }
+  
+  .animate-bubble-rise-simple {
+    animation-duration: 14s;
   }
 }
