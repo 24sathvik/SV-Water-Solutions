@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { Search, ShoppingCart, Package } from 'lucide-react'
+import { Search, MessageCircle, Package, Phone } from 'lucide-react'
 
 const categories = [
   'All Parts',
@@ -24,7 +24,7 @@ const spareParts = [
     id: 1,
     name: 'RO Membrane 75 GPD',
     category: 'Filters & Membranes',
-    price: 45,
+    price: 1499,
     image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80',
     inStock: true,
     compatibility: 'Universal',
@@ -34,7 +34,7 @@ const spareParts = [
     id: 2,
     name: 'Pre-Filter Set (3 Pack)',
     category: 'Filters & Membranes',
-    price: 25,
+    price: 899,
     image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=400&q=80',
     inStock: true,
     compatibility: 'Universal',
@@ -44,7 +44,7 @@ const spareParts = [
     id: 3,
     name: 'Storage Tank 12L',
     category: 'Storage Tanks',
-    price: 65,
+    price: 2199,
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
     inStock: true,
     compatibility: 'Standard RO Systems',
@@ -54,7 +54,7 @@ const spareParts = [
     id: 4,
     name: 'Booster Pump 75 GPD',
     category: 'Pumps & Motors',
-    price: 55,
+    price: 1899,
     image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80',
     inStock: true,
     compatibility: 'RO Systems',
@@ -64,8 +64,8 @@ const spareParts = [
     id: 5,
     name: 'UV Lamp 11W',
     category: 'UV Lamps',
-    price: 35,
-    image: 'https://images.unsplash.com/photo-1582736020550-730a0b8f89e0?w=400&q=80',
+    price: 1199,
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
     inStock: true,
     compatibility: 'UV Systems',
     description: 'Replacement UV lamp with 9000-hour lifespan'
@@ -74,7 +74,7 @@ const spareParts = [
     id: 6,
     name: 'Designer Faucet - Chrome',
     category: 'Faucets & Taps',
-    price: 28,
+    price: 999,
     image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&q=80',
     inStock: true,
     compatibility: 'Universal',
@@ -84,7 +84,7 @@ const spareParts = [
     id: 7,
     name: 'Quick Connect Kit',
     category: 'Pipes & Connectors',
-    price: 15,
+    price: 499,
     image: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&q=80',
     inStock: true,
     compatibility: 'Universal',
@@ -94,7 +94,7 @@ const spareParts = [
     id: 8,
     name: 'Power Adapter 24V',
     category: 'Electrical Parts',
-    price: 18,
+    price: 599,
     image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&q=80',
     inStock: true,
     compatibility: 'Most RO Systems',
@@ -104,7 +104,7 @@ const spareParts = [
     id: 9,
     name: 'Carbon Block Filter',
     category: 'Filters & Membranes',
-    price: 12,
+    price: 399,
     image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=400&q=80',
     inStock: true,
     compatibility: 'Universal',
@@ -114,7 +114,7 @@ const spareParts = [
     id: 10,
     name: 'TDS Meter Digital',
     category: 'Electrical Parts',
-    price: 22,
+    price: 749,
     image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80',
     inStock: true,
     compatibility: 'Universal',
@@ -124,7 +124,7 @@ const spareParts = [
     id: 11,
     name: 'Float Valve Assembly',
     category: 'Storage Tanks',
-    price: 8,
+    price: 299,
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
     inStock: true,
     compatibility: 'Storage Tanks',
@@ -134,7 +134,7 @@ const spareParts = [
     id: 12,
     name: 'Inline Filter Housing',
     category: 'Pipes & Connectors',
-    price: 20,
+    price: 699,
     image: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&q=80',
     inStock: true,
     compatibility: 'Universal',
@@ -153,23 +153,34 @@ export default function SparePartsPage() {
     return categoryMatch && searchMatch
   })
 
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(price)
+  }
+
+  const handleEnquiry = (partName: string) => {
+    const message = encodeURIComponent(`Hi, I'm interested in ${partName}. Please share availability and price.`)
+    window.open(`https://wa.me/919999999999?text=${message}`, '_blank')
+  }
+
   return (
     <main className="min-h-screen bg-off-white pt-24">
-      {/* Hero Section */}
       <section className="bg-charcoal py-12 text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">Spare Parts & Accessories</h1>
             <p className="text-lg text-gray-300">
-              Genuine spare parts and accessories for all your water purification needs. 
-              Quality guaranteed, compatible with most brands.
+              Genuine spare parts and accessories for all water purifiers. 
+              Compatible with Aquaguard, Aquasure, Kent, Livpure & more.
             </p>
           </div>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
-        {/* Search Bar */}
         <div className="mb-8">
           <div className="relative max-w-md">
             <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
@@ -184,7 +195,6 @@ export default function SparePartsPage() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-          {/* Categories Sidebar */}
           <aside>
             <Card>
               <CardHeader>
@@ -210,7 +220,6 @@ export default function SparePartsPage() {
               </CardContent>
             </Card>
 
-            {/* Help Card */}
             <Card className="mt-6 bg-aqua/10">
               <CardContent className="p-6">
                 <h3 className="mb-2 font-semibold text-charcoal">Need Help?</h3>
@@ -218,13 +227,15 @@ export default function SparePartsPage() {
                   Not sure which part you need? Contact our experts.
                 </p>
                 <Button className="w-full bg-aqua text-white hover:bg-aqua-dark" asChild>
-                  <a href="tel:+1234567890">Call Us Now</a>
+                  <a href="tel:+919999999999">
+                    <Phone className="mr-2 h-4 w-4" />
+                    Call Us Now
+                  </a>
                 </Button>
               </CardContent>
             </Card>
           </aside>
 
-          {/* Parts Grid */}
           <div>
             <div className="mb-6 flex items-center justify-between">
               <p className="text-sm text-muted-foreground">
@@ -234,7 +245,7 @@ export default function SparePartsPage() {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filteredParts.map((part) => (
-                <Card key={part.id} className="overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <Card key={part.id} className="overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col">
                   <CardHeader className="p-0">
                     <div className="relative aspect-square overflow-hidden bg-gray-100">
                       <Image
@@ -250,7 +261,7 @@ export default function SparePartsPage() {
                       )}
                     </div>
                   </CardHeader>
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex-1">
                     <div className="mb-2 text-xs text-muted-foreground">{part.category}</div>
                     <h3 className="mb-2 text-lg font-semibold text-charcoal">{part.name}</h3>
                     <p className="mb-3 text-sm text-muted-foreground line-clamp-2">
@@ -261,12 +272,15 @@ export default function SparePartsPage() {
                         {part.compatibility}
                       </Badge>
                     </div>
-                    <div className="text-2xl font-bold text-aqua">${part.price}</div>
+                    <div className="text-2xl font-bold text-aqua">{formatPrice(part.price)}</div>
                   </CardContent>
                   <CardFooter className="p-6 pt-0">
-                    <Button className="w-full bg-charcoal text-white hover:bg-charcoal/90">
-                      <ShoppingCart className="mr-2 h-4 w-4" />
-                      Add to Cart
+                    <Button 
+                      className="w-full bg-green-600 text-white hover:bg-green-700"
+                      onClick={() => handleEnquiry(part.name)}
+                    >
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      Enquire Now
                     </Button>
                   </CardFooter>
                 </Card>
@@ -285,7 +299,6 @@ export default function SparePartsPage() {
           </div>
         </div>
 
-        {/* Information Section */}
         <section className="mt-16 rounded-lg bg-white p-8">
           <h2 className="mb-6 text-2xl font-bold text-charcoal">Why Choose Our Spare Parts?</h2>
           <div className="grid gap-6 md:grid-cols-3">
