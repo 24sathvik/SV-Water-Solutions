@@ -56,7 +56,7 @@ const products = [
     originalPrice: '₹29,999',
     rating: 4.7,
     reviews: 756,
-    image: 'https://images.unsplash.com/photo-1582736020550-730a0b8f89e0?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     badge: 'Popular',
     features: ['Alkaline Boost', 'Smart LED Display', '10L Capacity'],
     specs: { capacity: '10 L', warranty: '2 Years', filterLife: '8000 L' }
