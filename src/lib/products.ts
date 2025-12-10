@@ -140,9 +140,9 @@ export const products: Product[] = [
     originalPrice: 29999,
     rating: 4.7,
     reviews: 756,
-    image: 'https://images.unsplash.com/photo-1582736020550-730a0b8f89e0?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     images: [
-      'https://images.unsplash.com/photo-1582736020550-730a0b8f89e0?w=800&q=80',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
       'https://images.unsplash.com/photo-1625225233840-695456021cde?w=800&q=80',
     ],
     badge: 'Popular',
@@ -417,9 +417,9 @@ export const products: Product[] = [
     originalPrice: 26999,
     rating: 4.6,
     reviews: 678,
-    image: 'https://images.unsplash.com/photo-1582736020550-730a0b8f89e0?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     images: [
-      'https://images.unsplash.com/photo-1582736020550-730a0b8f89e0?w=800&q=80',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
       'https://images.unsplash.com/photo-1624958723474-ab9b81e3aa40?w=800&q=80',
     ],
     features: [
