@@ -12,7 +12,6 @@ import { Separator } from '@/components/ui/separator'
 import {
   Star,
   Check,
-  ShoppingCart,
   Heart,
   Share2,
   Truck,
@@ -27,13 +26,28 @@ import { getProductBySlug, products } from '@/lib/products'
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug)
   const [selectedImage, setSelectedImage] = useState(0)
-  const [quantity, setQuantity] = useState(1)
 
   if (!product) {
     notFound()
   }
 
-  // JSON-LD structured data for SEO
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(price)
+  }
+
+  const handleEnquiry = () => {
+    const message = encodeURIComponent(`Hi, I'm interested in ${product.name} (${formatPrice(product.price)}). Please share more details and availability.`)
+    window.open(`https://wa.me/919999999999?text=${message}`, '_blank')
+  }
+
+  const handleCall = () => {
+    window.open('tel:+919999999999', '_self')
+  }
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -47,7 +61,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     offers: {
       '@type': 'Offer',
       url: `https://svwatersolutions.com/water-purifiers/${product.slug}`,
-      priceCurrency: 'USD',
+      priceCurrency: 'INR',
       price: product.price,
       availability: product.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       seller: {
@@ -71,7 +85,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
       <main className="min-h-screen bg-white pt-24">
         <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
-          {/* Breadcrumb */}
           <div className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-aqua">Home</Link>
             <ChevronLeft className="h-4 w-4 rotate-180" />
@@ -81,7 +94,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* Image Gallery */}
             <div className="space-y-4">
               <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100">
                 <Image
@@ -94,6 +106,11 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 {product.badge && (
                   <Badge className="absolute left-4 top-4 bg-aqua text-white">
                     {product.badge}
+                  </Badge>
+                )}
+                {product.originalPrice && (
+                  <Badge className="absolute right-4 top-4 bg-green-600 text-white">
+                    {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF
                   </Badge>
                 )}
               </div>
@@ -117,7 +134,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               </div>
             </div>
 
-            {/* Product Info */}
             <div className="space-y-6">
               <div>
                 <div className="mb-2 text-sm text-muted-foreground">{product.category}</div>
@@ -125,7 +141,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   {product.name}
                 </h1>
 
-                {/* Rating */}
                 <div className="mb-4 flex items-center gap-4">
                   <div className="flex items-center gap-2">
                     <div className="flex items-center gap-1">
@@ -148,16 +163,15 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   </span>
                 </div>
 
-                {/* Price */}
-                <div className="mb-6 flex items-baseline gap-3">
-                  <span className="text-4xl font-bold text-aqua">${product.price}</span>
+                <div className="mb-6 flex items-baseline gap-3 flex-wrap">
+                  <span className="text-4xl font-bold text-aqua">{formatPrice(product.price)}</span>
                   {product.originalPrice && (
                     <>
                       <span className="text-xl text-muted-foreground line-through">
-                        ${product.originalPrice}
+                        {formatPrice(product.originalPrice)}
                       </span>
-                      <Badge className="bg-red-500 text-white">
-                        Save ${product.originalPrice - product.price}
+                      <Badge className="bg-green-600 text-white">
+                        Save {formatPrice(product.originalPrice - product.price)}
                       </Badge>
                     </>
                   )}
@@ -165,76 +179,47 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
                 <p className="mb-6 text-muted-foreground">{product.description}</p>
 
-                {/* Stock Status */}
                 <div className="mb-6">
                   {product.inStock ? (
                     <div className="flex items-center gap-2 text-green-600">
                       <Check className="h-5 w-5" />
-                      <span className="font-medium">In Stock - Ready to Ship</span>
+                      <span className="font-medium">In Stock - Free Installation Available</span>
                     </div>
                   ) : (
                     <div className="text-red-600">Out of Stock</div>
                   )}
                 </div>
 
-                {/* Quantity Selector */}
-                <div className="mb-6 flex items-center gap-4">
-                  <span className="text-sm font-medium">Quantity:</span>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    >
-                      -
-                    </Button>
-                    <span className="w-12 text-center font-medium">{quantity}</span>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => setQuantity(quantity + 1)}
-                    >
-                      +
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="mb-6 flex gap-3">
+                <div className="mb-6 flex flex-col sm:flex-row gap-3">
                   <Button
                     size="lg"
-                    className="flex-1 bg-aqua text-white hover:bg-aqua-dark"
-                    disabled={!product.inStock}
+                    className="flex-1 bg-green-600 text-white hover:bg-green-700"
+                    onClick={handleEnquiry}
                   >
-                    <ShoppingCart className="mr-2 h-5 w-5" />
-                    Add to Cart
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Enquire on WhatsApp
                   </Button>
-                  <Button size="lg" variant="outline" className="px-6">
-                    <Heart className="h-5 w-5" />
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="flex-1 border-aqua text-aqua hover:bg-aqua hover:text-white"
+                    onClick={handleCall}
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Now
+                  </Button>
+                </div>
+
+                <div className="mb-6 flex gap-3">
+                  <Button size="lg" variant="outline" className="flex-1">
+                    <Heart className="mr-2 h-5 w-5" />
+                    Add to Wishlist
                   </Button>
                   <Button size="lg" variant="outline" className="px-6">
                     <Share2 className="h-5 w-5" />
                   </Button>
                 </div>
 
-                {/* WhatsApp CTA */}
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="mb-6 w-full border-aqua text-aqua hover:bg-aqua hover:text-white"
-                  asChild
-                >
-                  <a
-                    href={`https://wa.me/1234567890?text=Hi%2C%20I%27m%20interested%20in%20${encodeURIComponent(product.name)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Inquire on WhatsApp
-                  </a>
-                </Button>
-
-                {/* Trust Badges */}
                 <div className="grid grid-cols-3 gap-4 rounded-lg bg-off-white p-4">
                   <div className="text-center">
                     <Truck className="mx-auto mb-2 h-6 w-6 text-aqua" />
@@ -253,7 +238,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             </div>
           </div>
 
-          {/* Detailed Information Tabs */}
           <div className="mt-12">
             <Tabs defaultValue="features" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
@@ -333,7 +317,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             </Tabs>
           </div>
 
-          {/* Related Products */}
           <div className="mt-12">
             <h2 className="mb-6 text-2xl font-bold">You May Also Like</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -341,27 +324,49 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 .filter((p) => p.id !== product.id && p.category === product.category)
                 .slice(0, 4)
                 .map((relatedProduct) => (
-                  <Card key={relatedProduct.id} className="overflow-hidden">
+                  <Card key={relatedProduct.id} className="overflow-hidden group">
                     <Link href={`/water-purifiers/${relatedProduct.slug}`}>
                       <div className="relative aspect-square">
                         <Image
                           src={relatedProduct.image}
                           alt={relatedProduct.name}
                           fill
-                          className="object-cover transition-transform hover:scale-105"
+                          className="object-cover transition-transform group-hover:scale-105"
                         />
                       </div>
                       <CardContent className="p-4">
-                        <h3 className="mb-2 font-semibold">{relatedProduct.name}</h3>
+                        <h3 className="mb-2 font-semibold line-clamp-2">{relatedProduct.name}</h3>
                         <div className="flex items-center gap-2">
                           <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                           <span className="text-sm">{relatedProduct.rating}</span>
                         </div>
-                        <div className="mt-2 text-xl font-bold text-aqua">
-                          ${relatedProduct.price}
+                        <div className="mt-2 flex items-baseline gap-2">
+                          <span className="text-xl font-bold text-aqua">
+                            {formatPrice(relatedProduct.price)}
+                          </span>
+                          {relatedProduct.originalPrice && (
+                            <span className="text-sm text-muted-foreground line-through">
+                              {formatPrice(relatedProduct.originalPrice)}
+                            </span>
+                          )}
                         </div>
                       </CardContent>
                     </Link>
+                    <div className="px-4 pb-4">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          const msg = encodeURIComponent(`Hi, I'm interested in ${relatedProduct.name}. Please share details.`)
+                          window.open(`https://wa.me/919999999999?text=${msg}`, '_blank')
+                        }}
+                      >
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        Enquire
+                      </Button>
+                    </div>
                   </Card>
                 ))}
             </div>
