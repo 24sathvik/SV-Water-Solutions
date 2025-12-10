@@ -3,17 +3,17 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Menu, Phone, MessageCircle } from 'lucide-react'
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
+import { Menu, Phone, MessageCircle, Home, Droplets, Settings, Wrench, FlaskConical, Building2, Mail, X, ChevronRight } from 'lucide-react'
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Water Purifiers', href: '/water-purifiers' },
-  { name: 'Spare Parts', href: '/spare-parts' },
-  { name: 'Services', href: '/services' },
-  { name: 'Water Solutions', href: '/water-solutions' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Home', href: '/', icon: Home },
+  { name: 'Water Purifiers', href: '/water-purifiers', icon: Droplets },
+  { name: 'Spare Parts', href: '/spare-parts', icon: Settings },
+  { name: 'Services', href: '/services', icon: Wrench },
+  { name: 'Water Solutions', href: '/water-solutions', icon: FlaskConical },
+  { name: 'About', href: '/about', icon: Building2 },
+  { name: 'Contact', href: '/contact', icon: Mail },
 ]
 
 export default function Header() {
@@ -30,23 +30,44 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md'
-          : 'bg-transparent'
+          ? 'bg-white/70 backdrop-blur-xl shadow-lg shadow-aqua/5 border-b border-white/20'
+          : 'bg-white/10 backdrop-blur-md border-b border-white/10'
       }`}
+      style={{
+        background: isScrolled 
+          ? 'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,253,255,0.9) 50%, rgba(255,255,255,0.85) 100%)'
+          : 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(0,200,215,0.08) 50%, rgba(255,255,255,0.15) 100%)',
+      }}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+      <div 
+        className="absolute inset-0 pointer-events-none overflow-hidden"
+        style={{
+          background: isScrolled
+            ? 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,200,215,0.15), transparent)'
+            : 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,200,215,0.1), transparent)',
+        }}
+      />
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-aqua">
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 ${
+            isScrolled 
+              ? 'bg-gradient-to-br from-aqua to-cyan-500 shadow-lg shadow-aqua/30' 
+              : 'bg-aqua/90 backdrop-blur-sm'
+          } group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-aqua/40`}>
             <span className="text-xl font-bold text-white">SV</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-bold leading-tight text-charcoal">
+            <span className={`text-lg font-bold leading-tight transition-colors duration-300 ${
+              isScrolled ? 'text-charcoal' : 'text-white'
+            }`}>
               SV Water Solutions
             </span>
-            <span className="text-xs text-muted-foreground">Pure Life, Pure Water</span>
+            <span className={`text-xs transition-colors duration-300 ${
+              isScrolled ? 'text-aqua' : 'text-aqua/90'
+            }`}>Pure Life, Pure Water</span>
           </div>
         </Link>
 
@@ -56,9 +77,12 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-charcoal transition-colors hover:text-aqua"
+              className={`text-sm font-medium transition-all duration-300 hover:text-aqua relative group ${
+                isScrolled ? 'text-charcoal' : 'text-white/90'
+              }`}
             >
               {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-aqua transition-all duration-300 group-hover:w-full rounded-full" />
             </Link>
           ))}
         </div>
@@ -69,9 +93,11 @@ export default function Header() {
             variant="ghost"
             size="sm"
             asChild
-            className="text-charcoal hover:text-aqua"
+            className={`transition-all duration-300 ${
+              isScrolled ? 'text-charcoal hover:text-aqua hover:bg-aqua/10' : 'text-white hover:text-aqua hover:bg-white/10'
+            }`}
           >
-            <a href="tel:+1234567890">
+            <a href="tel:+919999999999">
               <Phone className="mr-2 h-4 w-4" />
               Call Us
             </a>
@@ -79,10 +105,10 @@ export default function Header() {
           <Button
             size="sm"
             asChild
-            className="bg-aqua text-white hover:bg-aqua-dark"
+            className="bg-aqua text-white hover:bg-aqua-dark shadow-lg shadow-aqua/30 hover:shadow-xl hover:shadow-aqua/40 transition-all duration-300"
           >
             <a
-              href="https://wa.me/1234567890?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20solutions"
+              href="https://wa.me/919999999999?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20purifiers"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -95,48 +121,118 @@ export default function Header() {
         {/* Mobile Menu */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className={`transition-colors duration-300 ${
+                isScrolled ? 'text-charcoal hover:bg-aqua/10' : 'text-white hover:bg-white/10'
+              }`}
+            >
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <nav className="flex flex-col gap-4 mt-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-charcoal transition-colors hover:text-aqua"
-                >
-                  {item.name}
-                </Link>
+          <SheetContent 
+            side="right" 
+            className="w-full sm:w-[400px] p-0 border-l-0 bg-gradient-to-br from-charcoal via-[#1e2a35] to-charcoal overflow-hidden"
+          >
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+            {/* Water bubbles background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-aqua/10 animate-bubble-rise-simple"
+                  style={{
+                    width: 20 + (i * 15),
+                    height: 20 + (i * 15),
+                    left: `${15 + (i * 15)}%`,
+                    bottom: '-50px',
+                    animationDelay: `${i * 1.5}s`,
+                    animationDuration: `${12 + i * 2}s`,
+                  }}
+                />
               ))}
-              <div className="mt-6 flex flex-col gap-3">
-                <Button
-                  variant="outline"
-                  asChild
-                  className="w-full"
-                >
-                  <a href="tel:+1234567890">
-                    <Phone className="mr-2 h-4 w-4" />
-                    Call Us
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  className="w-full bg-aqua text-white hover:bg-aqua-dark"
-                >
-                  <a
-                    href="https://wa.me/1234567890?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20solutions"
-                    target="_blank"
-                    rel="noopener noreferrer"
+            </div>
+
+            {/* Glass overlay at top */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-aqua/20 to-transparent pointer-events-none" />
+
+            <div className="relative h-full flex flex-col">
+              {/* Header */}
+              <div className="p-6 pb-4 border-b border-white/10">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-aqua to-cyan-500 shadow-lg shadow-aqua/30">
+                      <span className="text-xl font-bold text-white">SV</span>
+                    </div>
+                    <div>
+                      <h2 className="text-lg font-bold text-white">SV Water Solutions</h2>
+                      <p className="text-xs text-aqua">Pure Life, Pure Water</p>
+                    </div>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-white/70 hover:text-white hover:bg-white/10 rounded-full"
                   >
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    WhatsApp
-                  </a>
-                </Button>
+                    <X className="h-5 w-5" />
+                  </Button>
+                </div>
               </div>
-            </nav>
+
+              {/* Navigation Links */}
+              <nav className="flex-1 p-4 overflow-y-auto">
+                <div className="space-y-1">
+                  {navigation.map((item, index) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-4 px-4 py-4 rounded-xl text-white/80 transition-all duration-300 hover:bg-white/10 hover:text-white group"
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 border border-white/10 transition-all duration-300 group-hover:bg-aqua/20 group-hover:border-aqua/30">
+                        <item.icon className="h-5 w-5 text-aqua" />
+                      </div>
+                      <span className="flex-1 text-base font-medium">{item.name}</span>
+                      <ChevronRight className="h-4 w-4 text-white/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-aqua" />
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+
+              {/* Bottom CTA Section */}
+              <div className="p-6 border-t border-white/10 bg-black/20 backdrop-blur-sm">
+                <p className="text-xs text-white/50 mb-4 text-center">Get in touch with us</p>
+                <div className="flex flex-col gap-3">
+                  <Button
+                    variant="outline"
+                    asChild
+                    className="w-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-aqua/50 transition-all duration-300"
+                  >
+                    <a href="tel:+919999999999" className="flex items-center justify-center gap-2">
+                      <Phone className="h-4 w-4 text-aqua" />
+                      <span>+91 99999 99999</span>
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 transition-all duration-300"
+                  >
+                    <a
+                      href="https://wa.me/919999999999?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20purifiers"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      <span>WhatsApp Us</span>
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </SheetContent>
         </Sheet>
       </nav>
