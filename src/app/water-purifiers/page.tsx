@@ -8,24 +8,22 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
-import { Star, Filter, SlidersHorizontal } from 'lucide-react'
+import { Star, Filter, SlidersHorizontal, MessageCircle, Phone } from 'lucide-react'
 import { products } from '@/lib/products'
 
-const categories = ['All', 'RO System', 'UV System', 'Water Softener', 'Alkaline System', 'Gravity Filter']
+const categories = ['All', 'RO System', 'RO+UV System', 'RO+UV+UF System', 'UV System', 'Water Softener', 'Gravity Filter']
 
 export default function WaterPurifiersPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
-  const [priceRange, setPriceRange] = useState([0, 1000])
+  const [priceRange, setPriceRange] = useState([0, 50000])
   const [sortBy, setSortBy] = useState('featured')
 
-  // Filter products
   let filteredProducts = products.filter(product => {
     const categoryMatch = selectedCategory === 'All' || product.category === selectedCategory
     const priceMatch = product.price >= priceRange[0] && product.price <= priceRange[1]
     return categoryMatch && priceMatch
   })
 
-  // Sort products
   filteredProducts = [...filteredProducts].sort((a, b) => {
     switch (sortBy) {
       case 'price-low':
@@ -41,16 +39,28 @@ export default function WaterPurifiersPage() {
     }
   })
 
+  const handleEnquiry = (productName: string) => {
+    const message = encodeURIComponent(`Hi, I'm interested in ${productName}. Please share more details and pricing.`)
+    window.open(`https://wa.me/919999999999?text=${message}`, '_blank')
+  }
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(price)
+  }
+
   return (
     <main className="min-h-screen bg-off-white pt-24">
-      {/* Hero Section */}
       <section className="bg-charcoal py-12 text-white">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">Water Purifiers</h1>
             <p className="text-lg text-gray-300">
-              Explore our comprehensive range of water purification systems designed for every need and budget.
-              From compact RO systems to industrial-grade solutions.
+              Explore our comprehensive range of RO, UV & UF water purification systems. 
+              Prices starting from ₹2,199 with free installation and warranty.
             </p>
           </div>
         </div>
@@ -58,7 +68,6 @@ export default function WaterPurifiersPage() {
 
       <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-          {/* Filters Sidebar */}
           <aside className="space-y-6">
             <Card>
               <CardHeader>
@@ -68,7 +77,6 @@ export default function WaterPurifiersPage() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
-                {/* Category Filter */}
                 <div>
                   <h3 className="mb-3 text-sm font-medium">Category</h3>
                   <div className="space-y-2">
@@ -88,28 +96,26 @@ export default function WaterPurifiersPage() {
                   </div>
                 </div>
 
-                {/* Price Range */}
                 <div>
                   <h3 className="mb-3 text-sm font-medium">
-                    Price Range: ${priceRange[0]} - ${priceRange[1]}
+                    Price Range: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
                   </h3>
                   <Slider
                     min={0}
-                    max={1000}
-                    step={50}
+                    max={50000}
+                    step={1000}
                     value={priceRange}
                     onValueChange={setPriceRange}
                     className="mb-2"
                   />
                 </div>
 
-                {/* Reset Filters */}
                 <Button
                   variant="outline"
                   className="w-full"
                   onClick={() => {
                     setSelectedCategory('All')
-                    setPriceRange([0, 1000])
+                    setPriceRange([0, 50000])
                   }}
                 >
                   Reset Filters
@@ -117,7 +123,6 @@ export default function WaterPurifiersPage() {
               </CardContent>
             </Card>
 
-            {/* Info Card */}
             <Card className="bg-aqua/10">
               <CardContent className="p-6">
                 <h3 className="mb-2 font-semibold text-charcoal">Need Help Choosing?</h3>
@@ -131,9 +136,7 @@ export default function WaterPurifiersPage() {
             </Card>
           </aside>
 
-          {/* Products Grid */}
           <div>
-            {/* Toolbar */}
             <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-muted-foreground">
                 Showing <span className="font-semibold">{filteredProducts.length}</span> products
@@ -155,12 +158,11 @@ export default function WaterPurifiersPage() {
               </div>
             </div>
 
-            {/* Products Grid */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filteredProducts.map((product) => (
                 <Card
                   key={product.id}
-                  className="group overflow-hidden transition-all duration-300 hover:shadow-xl"
+                  className="group overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col"
                 >
                   <CardHeader className="p-0">
                     <Link href={`/water-purifiers/${product.slug}`}>
@@ -177,41 +179,38 @@ export default function WaterPurifiersPage() {
                           </Badge>
                         )}
                         {product.originalPrice && (
-                          <Badge className="absolute right-4 top-4 bg-red-500 text-white">
-                            Save ${product.originalPrice - product.price}
+                          <Badge className="absolute right-4 top-4 bg-green-600 text-white">
+                            {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF
                           </Badge>
                         )}
                       </div>
                     </Link>
                   </CardHeader>
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex-1">
                     <div className="mb-2 text-sm text-muted-foreground">{product.category}</div>
                     <Link href={`/water-purifiers/${product.slug}`}>
-                      <h3 className="mb-2 text-xl font-semibold text-charcoal transition-colors hover:text-aqua">
+                      <h3 className="mb-2 text-lg font-semibold text-charcoal transition-colors hover:text-aqua line-clamp-2">
                         {product.name}
                       </h3>
                     </Link>
 
-                    {/* Rating */}
                     <div className="mb-3 flex items-center gap-2">
                       <div className="flex items-center gap-1">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                         <span className="font-medium text-charcoal">{product.rating}</span>
                       </div>
-                      <span className="text-sm text-muted-foreground">({product.reviews})</span>
+                      <span className="text-sm text-muted-foreground">({product.reviews} reviews)</span>
                     </div>
 
-                    {/* Price */}
                     <div className="mb-4 flex items-baseline gap-2">
-                      <span className="text-2xl font-bold text-aqua">${product.price}</span>
+                      <span className="text-2xl font-bold text-aqua">{formatPrice(product.price)}</span>
                       {product.originalPrice && (
                         <span className="text-sm text-muted-foreground line-through">
-                          ${product.originalPrice}
+                          {formatPrice(product.originalPrice)}
                         </span>
                       )}
                     </div>
 
-                    {/* Top Features */}
                     <ul className="space-y-1">
                       {product.features.slice(0, 3).map((feature) => (
                         <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -221,16 +220,23 @@ export default function WaterPurifiersPage() {
                       ))}
                     </ul>
                   </CardContent>
-                  <CardFooter className="p-6 pt-0">
+                  <CardFooter className="p-6 pt-0 flex flex-col gap-2">
                     <Button className="w-full bg-charcoal text-white hover:bg-charcoal/90" asChild>
                       <Link href={`/water-purifiers/${product.slug}`}>View Details</Link>
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                      onClick={() => handleEnquiry(product.name)}
+                    >
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      Enquire Now
                     </Button>
                   </CardFooter>
                 </Card>
               ))}
             </div>
 
-            {/* No Results */}
             {filteredProducts.length === 0 && (
               <div className="py-12 text-center">
                 <Filter className="mx-auto mb-4 h-12 w-12 text-muted-foreground" />
