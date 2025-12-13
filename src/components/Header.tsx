@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
-import { Menu, Phone, MessageCircle, Home, Droplets, Settings, Wrench, FlaskConical, Building2, Mail, X, ChevronRight } from 'lucide-react'
+import { Menu, Phone, MessageCircle, Home, Droplets, Settings, Wrench, FlaskConical, Building2, Mail, ChevronRight } from 'lucide-react'
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home },
@@ -161,24 +161,14 @@ export default function Header() {
             <div className="relative h-full flex flex-col">
               {/* Header */}
               <div className="p-6 pb-4 border-b border-white/10">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-aqua to-cyan-500 shadow-lg shadow-aqua/30">
-                      <span className="text-xl font-bold text-white">SV</span>
-                    </div>
-                    <div>
-                      <h2 className="text-lg font-bold text-white">SV Water Solutions</h2>
-                      <p className="text-xs text-aqua">Pure Life, Pure Water</p>
-                    </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-aqua to-cyan-500 shadow-lg shadow-aqua/30">
+                    <span className="text-xl font-bold text-white">SV</span>
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-white/70 hover:text-white hover:bg-white/10 rounded-full"
-                  >
-                    <X className="h-5 w-5" />
-                  </Button>
+                  <div>
+                    <h2 className="text-lg font-bold text-white">SV Water Solutions</h2>
+                    <p className="text-xs text-aqua">Pure Life, Pure Water</p>
+                  </div>
                 </div>
               </div>
 
