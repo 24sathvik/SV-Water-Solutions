@@ -32,21 +32,16 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/70 backdrop-blur-xl shadow-lg shadow-aqua/5 border-b border-white/20'
-          : 'bg-white/10 backdrop-blur-md border-b border-white/10'
+          ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-aqua/5 border-b border-aqua/10'
+          : 'bg-white/15 backdrop-blur-xl border-b border-white/20 shadow-md'
       }`}
-      style={{
-        background: isScrolled 
-          ? 'linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,253,255,0.9) 50%, rgba(255,255,255,0.85) 100%)'
-          : 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(0,200,215,0.08) 50%, rgba(255,255,255,0.15) 100%)',
-      }}
     >
       <div 
         className="absolute inset-0 pointer-events-none overflow-hidden"
         style={{
           background: isScrolled
-            ? 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,200,215,0.15), transparent)'
-            : 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,200,215,0.1), transparent)',
+            ? 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,200,215,0.08), transparent)'
+            : 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,200,215,0.12), transparent)',
         }}
       />
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
@@ -55,18 +50,18 @@ export default function Header() {
           <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 ${
             isScrolled 
               ? 'bg-gradient-to-br from-aqua to-cyan-500 shadow-lg shadow-aqua/30' 
-              : 'bg-aqua/90 backdrop-blur-sm'
-          } group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-aqua/40`}>
-            <span className="text-xl font-bold text-white">SV</span>
+              : 'bg-gradient-to-br from-aqua via-cyan-500 to-aqua shadow-xl shadow-aqua/40'
+          } group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-aqua/50`}>
+            <span className="text-xl font-bold text-white drop-shadow-lg">SV</span>
           </div>
           <div className="flex flex-col">
-            <span className={`text-lg font-bold leading-tight transition-colors duration-300 ${
-              isScrolled ? 'text-charcoal' : 'text-white'
+            <span className={`text-lg font-bold leading-tight transition-colors duration-300 drop-shadow-sm ${
+              isScrolled ? 'text-charcoal' : 'text-white [text-shadow:_0_1px_8px_rgb(0_0_0_/_30%)]'
             }`}>
               SV Water Solutions
             </span>
-            <span className={`text-xs transition-colors duration-300 ${
-              isScrolled ? 'text-aqua' : 'text-aqua/90'
+            <span className={`text-xs font-medium transition-colors duration-300 ${
+              isScrolled ? 'text-aqua' : 'text-white/95 [text-shadow:_0_1px_4px_rgb(0_0_0_/_25%)]'
             }`}>Pure Life, Pure Water</span>
           </div>
         </Link>
@@ -77,12 +72,14 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-all duration-300 hover:text-aqua relative group ${
-                isScrolled ? 'text-charcoal' : 'text-white/90'
+              className={`text-sm font-semibold transition-all duration-300 hover:text-aqua relative group ${
+                isScrolled 
+                  ? 'text-charcoal hover:drop-shadow-sm' 
+                  : 'text-white [text-shadow:_0_1px_6px_rgb(0_0_0_/_35%)] hover:[text-shadow:_0_1px_8px_rgb(0_0_0_/_40%)]'
               }`}
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-aqua transition-all duration-300 group-hover:w-full rounded-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-aqua transition-all duration-300 group-hover:w-full rounded-full shadow-sm shadow-aqua/50" />
             </Link>
           ))}
         </div>
@@ -93,8 +90,10 @@ export default function Header() {
             variant="ghost"
             size="sm"
             asChild
-            className={`transition-all duration-300 ${
-              isScrolled ? 'text-charcoal hover:text-aqua hover:bg-aqua/10' : 'text-white hover:text-aqua hover:bg-white/10'
+            className={`font-medium transition-all duration-300 ${
+              isScrolled 
+                ? 'text-charcoal hover:text-aqua hover:bg-aqua/10' 
+                : 'text-white hover:text-aqua hover:bg-white/15 [text-shadow:_0_1px_4px_rgb(0_0_0_/_30%)]'
             }`}
           >
             <a href="tel:+919999999999">
@@ -105,7 +104,7 @@ export default function Header() {
           <Button
             size="sm"
             asChild
-            className="bg-aqua text-white hover:bg-aqua-dark shadow-lg shadow-aqua/30 hover:shadow-xl hover:shadow-aqua/40 transition-all duration-300"
+            className="bg-gradient-to-r from-aqua to-cyan-500 text-white hover:from-aqua-dark hover:to-cyan-600 shadow-lg shadow-aqua/30 hover:shadow-xl hover:shadow-aqua/40 transition-all duration-300 font-medium"
           >
             <a
               href="https://wa.me/919999999999?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20purifiers"
@@ -125,7 +124,9 @@ export default function Header() {
               variant="ghost" 
               size="icon"
               className={`transition-colors duration-300 ${
-                isScrolled ? 'text-charcoal hover:bg-aqua/10' : 'text-white hover:bg-white/10'
+                isScrolled 
+                  ? 'text-charcoal hover:bg-aqua/10' 
+                  : 'text-white hover:bg-white/15 [text-shadow:_0_1px_4px_rgb(0_0_0_/_30%)]'
               }`}
             >
               <Menu className="h-6 w-6" />

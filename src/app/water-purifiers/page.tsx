@@ -11,7 +11,7 @@ import { Slider } from '@/components/ui/slider'
 import { Star, Filter, SlidersHorizontal, MessageCircle, Phone } from 'lucide-react'
 import { products } from '@/lib/products'
 
-const categories = ['All', 'RO System', 'RO+UV System', 'RO+UV+UF System', 'UV System', 'Water Softener', 'Gravity Filter']
+const categories = ['All', 'RO System', 'RO+UV System', 'RO+UV+UF System', 'Smart RO+UV System', 'UV System', 'Water Softener', 'Gravity Filter']
 
 export default function WaterPurifiersPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')

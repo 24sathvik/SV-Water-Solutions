@@ -23,7 +23,7 @@ import {
 const amcPlans = [
   {
     name: 'Basic',
-    price: 99,
+    price: 2999,
     duration: 'per year',
     features: [
       '2 Free Service Visits',
@@ -36,7 +36,7 @@ const amcPlans = [
   },
   {
     name: 'Standard',
-    price: 199,
+    price: 5999,
     duration: 'per year',
     features: [
       '4 Free Service Visits',
@@ -51,7 +51,7 @@ const amcPlans = [
   },
   {
     name: 'Premium',
-    price: 299,
+    price: 8999,
     duration: 'per year',
     features: [
       '6 Free Service Visits',
@@ -73,25 +73,25 @@ const services = [
     icon: Wrench,
     title: 'Installation',
     description: 'Professional installation of all types of water purification systems',
-    price: 'Starting at $50'
+    price: 'Starting at ₹1,499'
   },
   {
     icon: Shield,
     title: 'AMC Plans',
     description: 'Comprehensive annual maintenance contracts for peace of mind',
-    price: 'From $99/year'
+    price: 'From ₹2,999/year'
   },
   {
     icon: Zap,
     title: 'Repair & Maintenance',
     description: 'Quick and reliable repair services for all brands',
-    price: 'Starting at $30'
+    price: 'Starting at ₹899'
   },
   {
     icon: Calendar,
     title: 'Water Testing',
     description: 'Complete water quality analysis and TDS testing',
-    price: 'From $25'
+    price: 'From ₹749'
   }
 ]
 
@@ -182,7 +182,7 @@ export default function ServicesPage() {
                 <CardHeader className={plan.popular ? 'pt-12' : ''}>
                   <h3 className="mb-2 text-2xl font-bold text-charcoal">{plan.name}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-aqua">${plan.price}</span>
+                    <span className="text-4xl font-bold text-aqua">₹{plan.price.toLocaleString('en-IN')}</span>
                     <span className="text-muted-foreground">/{plan.duration}</span>
                   </div>
                 </CardHeader>
