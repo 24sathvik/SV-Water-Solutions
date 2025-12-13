@@ -15,10 +15,6 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
   },
   outputFileTracingRoot: path.resolve(__dirname, '../../'),
   typescript: {
@@ -27,10 +23,6 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  reactStrictMode: true,
-  swcMinify: true,
-  poweredByHeader: false,
-  compress: true,
   turbopack: {
     rules: {
       "*.{jsx,tsx}": {
@@ -41,4 +33,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1765345398763
+// Orchids restart: 1765638018791
