@@ -96,7 +96,7 @@ export default function Header() {
                 : 'text-white hover:text-aqua hover:bg-white/15 [text-shadow:_0_1px_4px_rgb(0_0_0_/_30%)]'
             }`}
           >
-            <a href="tel:+919999999999">
+            <a href="tel:+918297612490">
               <Phone className="mr-2 h-4 w-4" />
               Call Us
             </a>
@@ -107,7 +107,7 @@ export default function Header() {
             className="bg-gradient-to-r from-aqua to-cyan-500 text-white hover:from-aqua-dark hover:to-cyan-600 shadow-lg shadow-aqua/30 hover:shadow-xl hover:shadow-aqua/40 transition-all duration-300 font-medium"
           >
             <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20purifiers"
+              href="https://wa.me/918297612490?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20purifiers"
               target="_blank"
               rel="noopener noreferrer"
             >
