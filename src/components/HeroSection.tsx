@@ -242,12 +242,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Animated Scroll Indicator */}
-      <div className="absolute bottom-20 left-1/2 z-10 -translate-x-1/2 xl:bottom-8 hidden sm:block animate-fade-in" style={{ animationDelay: '1s' }}>
-        <div className="flex h-12 w-7 items-start justify-center rounded-full border-2 border-white/30 p-2 animate-bounce-gentle">
-          <div className="w-1 h-2 rounded-full bg-aqua animate-scroll-indicator" />
-        </div>
-      </div>
-    </section>
-  )
-}
+      </section>
+    )
+  }
