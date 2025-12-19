@@ -522,10 +522,13 @@ export default function SparePartsPage() {
                   Not sure which part you need? Contact our experts.
                 </p>
                 <Button className="w-full bg-aqua text-white hover:bg-aqua-dark" asChild>
-                  <a href="tel:+919999999999">
-                    <Phone className="mr-2 h-4 w-4" />
-                    Call Us Now
+                  <a href="tel:+918297612490">
+                    <Button variant="outline" className="w-full border-aqua text-aqua hover:bg-aqua hover:text-white">
+                      <Phone className="mr-2 h-4 w-4" />
+                      Call for Expert Help
+                    </Button>
                   </a>
+
                 </Button>
               </CardContent>
             </Card>
