@@ -41,7 +41,7 @@ export default function WaterPurifiersPage() {
 
   const handleEnquiry = (productName: string) => {
     const message = encodeURIComponent(`Hi, I'm interested in ${productName}. Please share more details and pricing.`)
-    window.open(`https://wa.me/919999999999?text=${message}`, '_blank')
+    window.open(`https://wa.me/918297612490?text=${message}`, '_blank')
   }
 
   const formatPrice = (price: number) => {
