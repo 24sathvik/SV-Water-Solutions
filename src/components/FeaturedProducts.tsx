@@ -91,7 +91,7 @@ export default function FeaturedProducts() {
 
   const handleEnquiry = (productName: string) => {
     const message = encodeURIComponent(`Hi, I'm interested in ${productName}. Please share more details.`)
-    window.open(`https://wa.me/919999999999?text=${message}`, '_blank')
+    window.open(`https://wa.me/918297612490?text=${message}`, '_blank')
   }
 
   return (

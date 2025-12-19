@@ -41,11 +41,11 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
   const handleEnquiry = () => {
     const message = encodeURIComponent(`Hi, I'm interested in ${product.name} (${formatPrice(product.price)}). Please share more details and availability.`)
-    window.open(`https://wa.me/919999999999?text=${message}`, '_blank')
+    window.open(`https://wa.me/918297612490?text=${message}`, '_blank')
   }
 
   const handleCall = () => {
-    window.open('tel:+919999999999', '_self')
+    window.open('tel:+918297612490', '_self')
   }
 
   const jsonLd = {

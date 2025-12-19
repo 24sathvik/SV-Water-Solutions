@@ -50,22 +50,23 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-aqua mt-0.5" />
-                <span className="text-sm text-gray-400">
-                  123 Water Street, Business District,<br />City, State 12345
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-aqua" />
-                <a href="tel:+1234567890" className="text-sm text-gray-400 hover:text-aqua transition-colors">
-                  +1 (234) 567-890
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-aqua" />
-                <a href="mailto:info@svwatersolutions.com" className="text-sm text-gray-400 hover:text-aqua transition-colors">
-                  info@svwatersolutions.com
-                </a>
-              </div>
+                  <span className="text-sm text-gray-400">
+                    Jangaom, telangana
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="h-5 w-5 text-aqua" />
+                  <a href="tel:+918297612490" className="text-sm text-gray-400 hover:text-aqua transition-colors">
+                    +91 8297612490
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="h-5 w-5 text-aqua" />
+                  <a href="mailto:Sathish9110732830@gmail.com" className="text-sm text-gray-400 hover:text-aqua transition-colors">
+                    Sathish9110732830@gmail.com
+                  </a>
+                </div>
+
             </div>
           </div>
 

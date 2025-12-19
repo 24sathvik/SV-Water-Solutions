@@ -178,7 +178,7 @@ export default function HeroSection() {
               asChild
               className="border-white/30 bg-white/5 px-6 py-5 sm:px-8 sm:py-6 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-aqua hover:bg-aqua/10 hover:text-aqua"
             >
-              <Link href="https://wa.me/919999999999?text=Hello! I'm interested in your water purifiers" target="_blank">
+              <Link href="https://wa.me/918297612490?text=Hello! I'm interested in your water purifiers" target="_blank">
                 <Droplets className="mr-2 h-5 w-5" />
                 WhatsApp Us
               </Link>
