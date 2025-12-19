@@ -112,73 +112,72 @@ export default function ContactPage() {
             </Card>
 
             {/* Phone */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-aqua/10">
-                    <Phone className="h-5 w-5 text-aqua" />
+              <Card>
+                <CardContent className="p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-aqua/10">
+                      <Phone className="h-5 w-5 text-aqua" />
+                    </div>
+                    <h3 className="font-semibold text-charcoal">Call Us</h3>
                   </div>
-                  <h3 className="font-semibold text-charcoal">Call Us</h3>
-                </div>
-                <a 
-                  href="tel:+1234567890" 
-                  className="block text-lg font-medium text-aqua hover:underline"
-                >
-                  +1 (234) 567-890
-                </a>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Mon-Sat: 9:00 AM - 6:00 PM<br />
-                  Sunday: Closed
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Email */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-aqua/10">
-                    <Mail className="h-5 w-5 text-aqua" />
-                  </div>
-                  <h3 className="font-semibold text-charcoal">Email Us</h3>
-                </div>
-                <a 
-                  href="mailto:info@svwatersolutions.com" 
-                  className="block font-medium text-aqua hover:underline"
-                >
-                  info@svwatersolutions.com
-                </a>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  We'll respond within 24 hours
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Address */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-aqua/10">
-                    <MapPin className="h-5 w-5 text-aqua" />
-                  </div>
-                  <h3 className="font-semibold text-charcoal">Visit Us</h3>
-                </div>
-                <address className="not-italic text-muted-foreground">
-                  123 Water Street,<br />
-                  Business District,<br />
-                  City, State 12345
-                </address>
-                <Button variant="outline" className="mt-4 w-full" asChild>
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <a 
+                    href="tel:+918297612490" 
+                    className="block text-lg font-medium text-aqua hover:underline"
                   >
-                    Get Directions
+                    +91 8297612490
                   </a>
-                </Button>
-              </CardContent>
-            </Card>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Mon-Sat: 9:00 AM - 6:00 PM<br />
+                    Sunday: Closed
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Email */}
+              <Card>
+                <CardContent className="p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-aqua/10">
+                      <Mail className="h-5 w-5 text-aqua" />
+                    </div>
+                    <h3 className="font-semibold text-charcoal">Email Us</h3>
+                  </div>
+                  <a 
+                    href="mailto:Sathish9110732830@gmail.com" 
+                    className="block font-medium text-aqua hover:underline"
+                  >
+                    Sathish9110732830@gmail.com
+                  </a>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    We'll respond within 24 hours
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Address */}
+              <Card>
+                <CardContent className="p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-aqua/10">
+                      <MapPin className="h-5 w-5 text-aqua" />
+                    </div>
+                    <h3 className="font-semibold text-charcoal">Visit Us</h3>
+                  </div>
+                  <address className="not-italic text-muted-foreground">
+                    Jangaom, telangana
+                  </address>
+                  <Button variant="outline" className="mt-4 w-full" asChild>
+                    <a
+                      href="https://maps.google.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Directions
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
 
             {/* Business Hours */}
             <Card>
