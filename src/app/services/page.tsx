@@ -244,14 +244,15 @@ export default function ServicesPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      required
-                      placeholder="+1 (234) 567-890"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    />
+                            <Input
+                              id="phone"
+                              type="tel"
+                              required
+                              placeholder="+91 8297612490"
+                              value={formData.phone}
+                              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            />
+
                   </div>
                 </div>
 
