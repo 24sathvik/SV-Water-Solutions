@@ -197,30 +197,31 @@ export default function Header() {
               <div className="p-6 border-t border-white/10 bg-black/20 backdrop-blur-sm">
                 <p className="text-xs text-white/50 mb-4 text-center">Get in touch with us</p>
                 <div className="flex flex-col gap-3">
-                  <Button
-                    variant="outline"
-                    asChild
-                    className="w-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-aqua/50 transition-all duration-300"
-                  >
-                    <a href="tel:+919999999999" className="flex items-center justify-center gap-2">
-                      <Phone className="h-4 w-4 text-aqua" />
-                      <span>+91 99999 99999</span>
-                    </a>
-                  </Button>
-                  <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 transition-all duration-300"
-                  >
-                    <a
-                      href="https://wa.me/919999999999?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20purifiers"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
+                    <Button
+                      variant="outline"
+                      asChild
+                      className="w-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-aqua/50 transition-all duration-300"
                     >
-                      <MessageCircle className="h-4 w-4" />
-                      <span>WhatsApp Us</span>
-                    </a>
-                  </Button>
+                      <a href="tel:+918297612490" className="flex items-center justify-center gap-2">
+                        <Phone className="h-4 w-4 text-aqua" />
+                        <span>+91 8297612490</span>
+                      </a>
+                    </Button>
+                    <Button
+                      asChild
+                      className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg shadow-green-500/30 transition-all duration-300"
+                    >
+                      <a
+                        href="https://wa.me/918297612490?text=Hi%2C%20I%27m%20interested%20in%20your%20water%20purifiers"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <MessageCircle className="h-4 w-4" />
+                        <span>WhatsApp Us</span>
+                      </a>
+                    </Button>
+
                 </div>
               </div>
             </div>
