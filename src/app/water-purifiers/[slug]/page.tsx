@@ -360,7 +360,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                         onClick={(e) => {
                           e.preventDefault()
                           const msg = encodeURIComponent(`Hi, I'm interested in ${relatedProduct.name}. Please share details.`)
-                          window.open(`https://wa.me/919999999999?text=${msg}`, '_blank')
+                          window.open(`https://wa.me/918297612490?text=${msg}`, '_blank')
                         }}
                       >
                         <MessageCircle className="mr-2 h-4 w-4" />
