@@ -58,7 +58,7 @@ export default function ContactPage() {
     }
   }
 
-  const whatsappNumber = '1234567890'
+  const whatsappNumber = '918297612490'
   const whatsappMessage = encodeURIComponent('Hi, I would like to inquire about your water purification solutions.')
 
   return (
