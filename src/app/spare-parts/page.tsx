@@ -458,7 +458,7 @@ export default function SparePartsPage() {
 
   const handleEnquiry = (partName: string) => {
     const message = encodeURIComponent(`Hi, I'm interested in ${partName}. Please share availability and price.`)
-    window.open(`https://wa.me/919999999999?text=${message}`, '_blank')
+    window.open(`https://wa.me/918297612490?text=${message}`, '_blank')
   }
 
   return (
@@ -522,10 +522,13 @@ export default function SparePartsPage() {
                   Not sure which part you need? Contact our experts.
                 </p>
                 <Button className="w-full bg-aqua text-white hover:bg-aqua-dark" asChild>
-                  <a href="tel:+919999999999">
-                    <Phone className="mr-2 h-4 w-4" />
-                    Call Us Now
+                  <a href="tel:+918297612490">
+                    <Button variant="outline" className="w-full border-aqua text-aqua hover:bg-aqua hover:text-white">
+                      <Phone className="mr-2 h-4 w-4" />
+                      Call for Expert Help
+                    </Button>
                   </a>
+
                 </Button>
               </CardContent>
             </Card>
