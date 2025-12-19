@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     // Simulate email sending (replace with actual email service)
     // await sendEmail({
-    //   to: 'info@svwatersolutions.com',
+    //   to: 'Sathish9110732830@gmail.com',
     //   subject: `Contact Form: ${subject}`,
     //   html: `
     //     <h2>New Contact Form Submission</h2>
