@@ -328,7 +328,7 @@ export default function ServicesPage() {
               <CardContent className="p-6 text-center">
                 <Phone className="mx-auto mb-4 h-10 w-10 text-aqua" />
                 <h3 className="mb-2 font-semibold">Call Us</h3>
-                <a href="tel:+1234567890" className="text-aqua hover:underline">
+                <a href="tel:+918297612490" className="text-aqua hover:underline">
                   +91 8297612490
                 </a>
                 <div className="mt-2 text-sm text-gray-400">Mon-Sat: 9AM - 6PM</div>
