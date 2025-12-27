@@ -26,7 +26,7 @@ const spareParts = [
     sku: 'AQ-PFA-RO',
     category: 'Filters & Membranes',
     price: 1070,
-    image: '/products/jmx4l0fpltylasph4isj.webp',
+    image: '/products/aquaguard-pre-filter-assembly.webp',
     inStock: true,
     compatibility: 'Aquaguard RO Systems',
     description: 'Genuine Aquaguard Pre-Filter Assembly for RO systems. Protects the main membrane from sediment and large particles.'
@@ -48,7 +48,7 @@ const spareParts = [
     sku: 'AQ-UVUF-AC',
     category: 'Filters & Membranes',
     price: 4805,
-    image: '/products/jmx4l0fpltylasph4isj.webp',
+    image: '/products/aquaguard-pre-filter-assembly.webp',
     inStock: true,
     compatibility: 'Aquaguard UV+UF Systems',
     description: 'Combined UV and UF kit featuring Active Copper technology for comprehensive protection.'
@@ -103,7 +103,7 @@ const spareParts = [
     sku: 'AQ-PFA-PL6',
     category: 'Filters & Membranes',
     price: 1040,
-    image: '/products/jmx4l0fpltylasph4isj.webp',
+    image: '/products/aquaguard-pre-filter-assembly.webp',
     inStock: true,
     compatibility: 'Aquaguard RO Systems',
     description: 'Premium Pre-Filter Assembly PL6 for enhanced sediment removal and membrane protection.'
