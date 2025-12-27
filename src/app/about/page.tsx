@@ -231,17 +231,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="bg-off-white py-16">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-charcoal md:text-4xl">
-              Meet Our Leadership
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              Experienced professionals dedicated to water purification excellence
-            </p>
-          </div>
+        {/* Certifications Section */}
+        <section className="bg-off-white py-16">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-charcoal md:text-4xl">
+                Certifications & Awards
+              </h2>
+              <p className="mx-auto max-w-2xl text-muted-foreground">
+                Recognized for quality and excellence in water purification
+              </p>
+            </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
