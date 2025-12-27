@@ -301,9 +301,9 @@ export default function WaterSolutionsPage() {
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">Request Consultation</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <Link href="/water-purifiers">Browse Products</Link>
-            </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-charcoal transition-all" asChild>
+                <Link href="/water-purifiers">Browse Products</Link>
+              </Button>
           </div>
         </div>
       </section>
