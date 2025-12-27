@@ -357,11 +357,11 @@ export const products: Product[] = [
     originalPrice: 20999,
     rating: 4.7,
     reviews: 987,
-    image: '/products/exjb4lfvxriyweysmcuc.webp',
-    images: [
-      '/products/exjb4lfvxriyweysmcuc.webp',
-      '/products/enieqdgh0pf0lvflzukt.webp',
-    ],
+      image: '/products/aquaguard-enrich-vector-2x.webp',
+      images: [
+        '/products/aquaguard-enrich-vector-2x.webp',
+        '/products/aquaguard-enrich-nexen-2x.webp',
+      ],
     sku: 'AQ-ENRICH-VECTOR-2X',
     features: [
       'Mineral-Charged Water Technology',
