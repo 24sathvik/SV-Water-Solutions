@@ -47,9 +47,9 @@ const values = [
 ]
 
 const stats = [
-  { icon: Users, value: '10,000+', label: 'Happy Customers' },
-  { icon: Award, value: '15+', label: 'Years Experience' },
-  { icon: Briefcase, value: '50+', label: 'Expert Team' },
+  { icon: Users, value: '5,000+', label: 'Happy Customers' },
+  { icon: Award, value: '10+', label: 'Years Experience' },
+  { icon: Briefcase, value: '25+', label: 'Expert Team' },
   { icon: CheckCircle2, value: '99%', label: 'Satisfaction Rate' }
 ]
 
