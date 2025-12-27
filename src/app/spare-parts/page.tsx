@@ -37,7 +37,7 @@ const spareParts = [
     sku: 'AQ-UVK-AC',
     category: 'UV Lamps',
     price: 2599,
-    image: '/products/mdyhm8vmuln1wyhe62fj.webp',
+    image: '/products/aquaguard-uv-kit.webp',
     inStock: true,
     compatibility: 'Aquaguard UV Systems',
     description: 'Complete UV kit with Active Copper technology for advanced purification and health benefits.'
@@ -81,7 +81,7 @@ const spareParts = [
     sku: 'AQ-ENH-UV',
     category: 'UV Lamps',
     price: 1632,
-    image: '/products/mdyhm8vmuln1wyhe62fj.webp',
+    image: '/products/aquaguard-uv-kit.webp',
     inStock: true,
     compatibility: 'Aquaguard Enhance Series',
     description: 'Specific UV kit designed for the Aquaguard Enhance series of water purifiers.'
