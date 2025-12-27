@@ -126,24 +126,17 @@ export default function Testimonials() {
 
                   <p className="mb-6 text-gray-300 leading-relaxed">{testimonial.text}</p>
 
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-aqua/20">
-<Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          fill
-                          loading="lazy"
-                          sizes="48px"
-                          className="object-cover"
-                        />
-                    </div>
-                    <div>
-                      <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-gray-400">
-                        {testimonial.role} • {testimonial.location}
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-aqua/20 ring-2 ring-aqua/20">
+                        <User className="h-6 w-6 text-aqua" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">{testimonial.name}</div>
+                        <div className="text-sm text-gray-400">
+                          {testimonial.role} • {testimonial.location}
+                        </div>
                       </div>
                     </div>
-                  </div>
                 </CardContent>
               </Card>
             </div>
