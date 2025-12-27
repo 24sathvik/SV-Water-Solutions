@@ -719,7 +719,7 @@ export const products: Product[] = [
     image: '/products/aquaguard-marvel-nxt-uv-uf.webp',
     images: [
       '/products/aquaguard-marvel-nxt-uv-uf.webp',
-      '/products/mdyhm8vmuln1wyhe62fj.webp',
+      '/products/aquaguard-uv-kit.webp',
     ],
     badge: 'For Low TDS',
     sku: 'AQ-MARVEL-NXT-UV',
