@@ -108,6 +108,7 @@ export default function FeaturedProducts() {
                         alt={product.name}
                         fill
                         loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       {product.badge && (
