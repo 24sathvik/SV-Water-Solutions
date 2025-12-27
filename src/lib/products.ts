@@ -318,11 +318,11 @@ export const products: Product[] = [
     originalPrice: 22999,
     rating: 4.8,
     reviews: 1456,
-    image: '/products/enieqdgh0pf0lvflzukt.webp',
-    images: [
-      '/products/enieqdgh0pf0lvflzukt.webp',
-      '/products/exjb4lfvxriyweysmcuc.webp',
-    ],
+      image: '/products/aquaguard-enrich-nexen-2x.webp',
+      images: [
+        '/products/aquaguard-enrich-nexen-2x.webp',
+        '/products/aquaguard-enrich-vector-2x.webp',
+      ],
     badge: 'Advanced Protection',
     sku: 'AQ-ENRICH-NEXEN-2X',
     features: [
