@@ -143,23 +143,23 @@ export default function AboutPage() {
                 Our Story
               </h2>
               <div className="space-y-4 text-muted-foreground">
-                <p>
-                  SV Water Solutions was founded in 2008 with a simple yet powerful vision: 
-                  to make clean, safe drinking water accessible to everyone. What started as 
-                  a small operation has grown into one of the region's most trusted water 
-                  purification companies.
-                </p>
-                <p>
-                  Our founder, Rajesh Kumar, recognized the critical need for reliable water 
-                  purification solutions after witnessing water quality issues affecting families 
-                  in his community. With a background in engineering and a passion for public health, 
-                  he set out to create a company that would prioritize quality, service, and customer satisfaction.
-                </p>
-                <p>
-                  Today, we serve over 10,000 satisfied customers across residential, commercial, 
-                  and industrial sectors. Our team of 50+ experts works tirelessly to ensure that 
-                  every installation meets our high standards of excellence.
-                </p>
+              <p>
+                    SV Water Solutions was founded in 2015 with a simple yet powerful vision: 
+                    to make clean, safe drinking water accessible to everyone. What started as 
+                    a small operation has grown into one of the region's most trusted water 
+                    purification companies.
+                  </p>
+                  <p>
+                    Our founder recognized the critical need for reliable water 
+                    purification solutions after witnessing water quality issues affecting families 
+                    in Telangana. With a background in engineering and a passion for public health, 
+                    he set out to create a company that would prioritize quality, service, and customer satisfaction.
+                  </p>
+                  <p>
+                    Today, we serve over 5,000 satisfied customers across residential, commercial, 
+                    and industrial sectors. Our team of 25+ experts works tirelessly to ensure that 
+                    every installation meets our high standards of excellence.
+                  </p>
                 <p>
                   We're not just selling water purifiers – we're providing peace of mind, protecting 
                   health, and building lasting relationships with our customers.
