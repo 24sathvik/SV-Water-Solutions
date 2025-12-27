@@ -716,9 +716,9 @@ export const products: Product[] = [
     originalPrice: 10999,
     rating: 4.6,
     reviews: 892,
-    image: '/products/vheezpzvx6yvvlpuqcly.webp',
+    image: '/products/aquaguard-marvel-nxt-uv-uf.webp',
     images: [
-      '/products/vheezpzvx6yvvlpuqcly.webp',
+      '/products/aquaguard-marvel-nxt-uv-uf.webp',
       '/products/mdyhm8vmuln1wyhe62fj.webp',
     ],
     badge: 'For Low TDS',
