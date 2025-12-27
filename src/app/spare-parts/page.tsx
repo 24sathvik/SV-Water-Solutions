@@ -21,179 +21,179 @@ const categories = [
 
 const spareParts = [
   // RO Membranes
-  {
-    id: 1,
-    name: 'RO Membrane 75 GPD',
-    sku: 'EF-ROM-75GPD',
-    category: 'Filters & Membranes',
-    price: 1499,
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80',
-    inStock: true,
-    compatibility: 'Aquaguard, Kent, Livpure',
-    description: 'High-quality 75 GPD RO membrane suitable for most residential RO systems. Ensures effective removal of TDS and impurities.'
-  },
-  {
-    id: 2,
-    name: 'RO Membrane 100 GPD',
-    sku: 'EF-ROM-100GPD',
-    category: 'Filters & Membranes',
-    price: 1899,
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80',
-    inStock: true,
-    compatibility: 'Aquaguard Aura, Ritz, Glory',
-    description: 'Premium 100 GPD RO membrane for higher flow rate. Ideal for larger families and commercial use.'
-  },
+    {
+      id: 1,
+      name: 'RO Membrane 75 GPD',
+      sku: 'EF-ROM-75GPD',
+      category: 'Filters & Membranes',
+      price: 1499,
+      image: '/products/fdwcpzkcfe9eadjgjikv.webp',
+      inStock: true,
+      compatibility: 'Aquaguard, Kent, Livpure',
+      description: 'High-quality 75 GPD RO membrane suitable for most residential RO systems. Ensures effective removal of TDS and impurities.'
+    },
+    {
+      id: 2,
+      name: 'RO Membrane 100 GPD',
+      sku: 'EF-ROM-100GPD',
+      category: 'Filters & Membranes',
+      price: 1899,
+      image: '/products/fdwcpzkcfe9eadjgjikv.webp',
+      inStock: true,
+      compatibility: 'Aquaguard Aura, Ritz, Glory',
+      description: 'Premium 100 GPD RO membrane for higher flow rate. Ideal for larger families and commercial use.'
+    },
 
-  // Pre & Post Filters
-  {
-    id: 3,
-    name: 'Sediment Filter 5 Micron',
-    sku: 'EF-SF-5M',
-    category: 'Filters & Membranes',
-    price: 299,
-    image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=400&q=80',
-    inStock: true,
-    compatibility: 'Universal',
-    description: 'Removes dirt, sand, rust and other sediment particles. First stage of filtration.'
-  },
-  {
-    id: 4,
-    name: 'Carbon Block Filter',
-    sku: 'EF-CBF-10',
-    category: 'Filters & Membranes',
-    price: 399,
-    image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=400&q=80',
-    inStock: true,
-    compatibility: 'Universal',
-    description: 'Removes chlorine, odor, bad taste and organic compounds. Improves water taste significantly.'
-  },
-  {
-    id: 5,
-    name: 'i-Filter Cartridge',
-    sku: 'EF-IFIL-01',
-    category: 'Filters & Membranes',
-    price: 599,
-    image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=400&q=80',
-    inStock: true,
-    compatibility: 'Aquaguard Models',
-    description: 'Intelligent filter with advanced sediment removal technology. Lasts up to 6000 liters.'
-  },
-  {
-    id: 6,
-    name: 'Chemi-Block Filter',
-    sku: 'EF-CHEM-01',
-    category: 'Filters & Membranes',
-    price: 499,
-    image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=400&q=80',
-    inStock: true,
-    compatibility: 'Aquaguard, Aquasure',
-    description: 'Removes chemicals, pesticides and improves water clarity. Essential for borewell water.'
-  },
-  {
-    id: 7,
-    name: 'Pre-Filter Set (3 Pack)',
-    sku: 'EF-PFS-3P',
-    category: 'Filters & Membranes',
-    price: 899,
-    image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=400&q=80',
-    inStock: true,
-    compatibility: 'Universal',
-    description: 'Complete set including sediment, carbon and post-carbon filters. Complete annual replacement kit.'
-  },
+    // Pre & Post Filters
+    {
+      id: 3,
+      name: 'Sediment Filter 5 Micron',
+      sku: 'EF-SF-5M',
+      category: 'Filters & Membranes',
+      price: 299,
+      image: '/products/jmx4l0fpltylasph4isj.webp',
+      inStock: true,
+      compatibility: 'Universal',
+      description: 'Removes dirt, sand, rust and other sediment particles. First stage of filtration.'
+    },
+    {
+      id: 4,
+      name: 'Carbon Block Filter',
+      sku: 'EF-CBF-10',
+      category: 'Filters & Membranes',
+      price: 399,
+      image: '/products/jmx4l0fpltylasph4isj.webp',
+      inStock: true,
+      compatibility: 'Universal',
+      description: 'Removes chlorine, odor, bad taste and organic compounds. Improves water taste significantly.'
+    },
+    {
+      id: 5,
+      name: 'i-Filter Cartridge',
+      sku: 'EF-IFIL-01',
+      category: 'Filters & Membranes',
+      price: 599,
+      image: '/products/jmx4l0fpltylasph4isj.webp',
+      inStock: true,
+      compatibility: 'Aquaguard Models',
+      description: 'Intelligent filter with advanced sediment removal technology. Lasts up to 6000 liters.'
+    },
+    {
+      id: 6,
+      name: 'Chemi-Block Filter',
+      sku: 'EF-CHEM-01',
+      category: 'Filters & Membranes',
+      price: 499,
+      image: '/products/jmx4l0fpltylasph4isj.webp',
+      inStock: true,
+      compatibility: 'Aquaguard, Aquasure',
+      description: 'Removes chemicals, pesticides and improves water clarity. Essential for borewell water.'
+    },
+    {
+      id: 7,
+      name: 'Pre-Filter Set (3 Pack)',
+      sku: 'EF-PFS-3P',
+      category: 'Filters & Membranes',
+      price: 899,
+      image: '/products/jmx4l0fpltylasph4isj.webp',
+      inStock: true,
+      compatibility: 'Universal',
+      description: 'Complete set including sediment, carbon and post-carbon filters. Complete annual replacement kit.'
+    },
 
-  // UV Lamps
-  {
-    id: 8,
-    name: 'UV Lamp 8W',
-    sku: 'EF-UVL-8W',
-    category: 'UV Lamps',
-    price: 999,
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
-    inStock: true,
-    compatibility: 'Aquasure, Entry-level Models',
-    description: 'Replacement 8W UV lamp with 5000-hour lifespan. Kills 99.99% bacteria and viruses.'
-  },
-  {
-    id: 9,
-    name: 'UV Lamp 11W',
-    sku: 'EF-UVL-11W',
-    category: 'UV Lamps',
-    price: 1199,
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
-    inStock: true,
-    compatibility: 'Aquaguard Aura, Glory, Enhance',
-    description: 'Standard 11W UV lamp for most Aquaguard models. 5000 burning hours guaranteed.'
-  },
-  {
-    id: 10,
-    name: 'UV LED Module',
-    sku: 'EF-UV-LED',
-    category: 'UV Lamps',
-    price: 1499,
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
-    inStock: true,
-    compatibility: 'Ritz Pro, Marvel NXT',
-    description: 'Advanced UV LED module with 10-year lifespan. Energy efficient and mercury-free.'
-  },
+    // UV Lamps
+    {
+      id: 8,
+      name: 'UV Lamp 8W',
+      sku: 'EF-UVL-8W',
+      category: 'UV Lamps',
+      price: 999,
+      image: '/products/mdyhm8vmuln1wyhe62fj.webp',
+      inStock: true,
+      compatibility: 'Aquasure, Entry-level Models',
+      description: 'Replacement 8W UV lamp with 5000-hour lifespan. Kills 99.99% bacteria and viruses.'
+    },
+    {
+      id: 9,
+      name: 'UV Lamp 11W',
+      sku: 'EF-UVL-11W',
+      category: 'UV Lamps',
+      price: 1199,
+      image: '/products/mdyhm8vmuln1wyhe62fj.webp',
+      inStock: true,
+      compatibility: 'Aquaguard Aura, Glory, Enhance',
+      description: 'Standard 11W UV lamp for most Aquaguard models. 5000 burning hours guaranteed.'
+    },
+    {
+      id: 10,
+      name: 'UV LED Module',
+      sku: 'EF-UV-LED',
+      category: 'UV Lamps',
+      price: 1499,
+      image: '/products/mdyhm8vmuln1wyhe62fj.webp',
+      inStock: true,
+      compatibility: 'Ritz Pro, Marvel NXT',
+      description: 'Advanced UV LED module with 10-year lifespan. Energy efficient and mercury-free.'
+    },
 
-  // Storage Tanks
-  {
-    id: 11,
-    name: 'Storage Tank 6L',
-    sku: 'EF-ST-6L',
-    category: 'Storage Tanks',
-    price: 1799,
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
-    inStock: true,
-    compatibility: 'Compact Models',
-    description: 'Food-grade 6-liter plastic storage tank with air pressure bladder system.'
-  },
-  {
-    id: 12,
-    name: 'Storage Tank 8L',
-    sku: 'EF-ST-8L',
-    category: 'Storage Tanks',
-    price: 1999,
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
-    inStock: true,
-    compatibility: 'Standard RO Systems',
-    description: 'Durable 8-liter food-grade storage tank. Suitable for most Aquaguard models.'
-  },
-  {
-    id: 13,
-    name: 'Storage Tank 12L',
-    sku: 'EF-ST-12L',
-    category: 'Storage Tanks',
-    price: 2199,
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
-    inStock: true,
-    compatibility: 'Large Capacity Systems',
-    description: 'Large 12-liter food-grade plastic storage tank with air pressure bladder.'
-  },
-  {
-    id: 14,
-    name: 'Stainless Steel Tank 5.5L',
-    sku: 'EF-SST-5.5L',
-    category: 'Storage Tanks',
-    price: 3499,
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
-    inStock: true,
-    compatibility: 'Ritz, Aspire Models',
-    description: 'Premium 304-grade stainless steel tank. Corrosion-resistant with lifetime warranty.'
-  },
+    // Storage Tanks
+    {
+      id: 11,
+      name: 'Storage Tank 6L',
+      sku: 'EF-ST-6L',
+      category: 'Storage Tanks',
+      price: 1799,
+      image: '/products/wshflbdmhbeyi1iral5j.webp',
+      inStock: true,
+      compatibility: 'Compact Models',
+      description: 'Food-grade 6-liter plastic storage tank with air pressure bladder system.'
+    },
+    {
+      id: 12,
+      name: 'Storage Tank 8L',
+      sku: 'EF-ST-8L',
+      category: 'Storage Tanks',
+      price: 1999,
+      image: '/products/wshflbdmhbeyi1iral5j.webp',
+      inStock: true,
+      compatibility: 'Standard RO Systems',
+      description: 'Durable 8-liter food-grade storage tank. Suitable for most Aquaguard models.'
+    },
+    {
+      id: 13,
+      name: 'Storage Tank 12L',
+      sku: 'EF-ST-12L',
+      category: 'Storage Tanks',
+      price: 2199,
+      image: '/products/wshflbdmhbeyi1iral5j.webp',
+      inStock: true,
+      compatibility: 'Large Capacity Systems',
+      description: 'Large 12-liter food-grade plastic storage tank with air pressure bladder.'
+    },
+    {
+      id: 14,
+      name: 'Stainless Steel Tank 5.5L',
+      sku: 'EF-SST-5.5L',
+      category: 'Storage Tanks',
+      price: 3499,
+      image: '/products/wshflbdmhbeyi1iral5j.webp',
+      inStock: true,
+      compatibility: 'Ritz, Aspire Models',
+      description: 'Premium 304-grade stainless steel tank. Corrosion-resistant with lifetime warranty.'
+    },
 
-  // Pumps & Motors
-  {
-    id: 15,
-    name: 'Booster Pump 75 GPD',
-    sku: 'EF-BP-75',
-    category: 'Pumps & Motors',
-    price: 1899,
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80',
-    inStock: true,
-    compatibility: 'All RO Systems',
-    description: 'Increases water pressure for optimal RO membrane performance. Essential for low-pressure areas.'
-  },
+    // Pumps & Motors
+    {
+      id: 15,
+      name: 'Booster Pump 75 GPD',
+      sku: 'EF-BP-75',
+      category: 'Pumps & Motors',
+      price: 1899,
+      image: '/products/k9eoo2boa7rxk2n6mbr0.webp',
+      inStock: true,
+      compatibility: 'All RO Systems',
+      description: 'Increases water pressure for optimal RO membrane performance. Essential for low-pressure areas.'
+    },
   {
     id: 16,
     name: 'SMPS Power Supply 24V 2.5A',
