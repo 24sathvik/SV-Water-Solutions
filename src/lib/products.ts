@@ -839,9 +839,9 @@ export const products: Product[] = [
     originalPrice: 45999,
     rating: 4.7,
     reviews: 234,
-    image: '/products/zroo0vq0dlmipbkimhx5.webp',
+    image: '/products/whole-house-water-softener-2000l.webp',
     images: [
-      '/products/zroo0vq0dlmipbkimhx5.webp',
+      '/products/whole-house-water-softener-2000l.webp',
       '/products/wshflbdmhbeyi1iral5j.webp',
     ],
     badge: 'Whole House',
