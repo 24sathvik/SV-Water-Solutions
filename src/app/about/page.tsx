@@ -8,7 +8,6 @@ import {
   Users, 
   Briefcase, 
   Heart,
-  Target,
   Zap,
   Shield,
   ThumbsUp,
@@ -65,7 +64,6 @@ const certifications = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white pt-24">
-      {/* Hero Section */}
       <section className="relative overflow-hidden bg-charcoal py-20 text-white">
         <div className="absolute inset-0 opacity-10">
           <div 
@@ -74,20 +72,19 @@ export default function AboutPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="max-w-3xl">
-              <Badge className="mb-4 bg-aqua text-white">Est. 2015</Badge>
-              <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-                About SV Water Solutions
-              </h1>
-              <p className="text-lg text-gray-300 md:text-xl">
-                For over 10 years, we've been committed to providing pure, safe drinking water 
-                to homes and businesses. Our mission is simple: ensure every drop counts.
-              </p>
-            </div>
+          <div className="max-w-3xl">
+            <Badge className="mb-4 bg-aqua text-white">Est. 2015</Badge>
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
+              About SV Water Solutions
+            </h1>
+            <p className="text-lg text-gray-300 md:text-xl">
+              For over 10 years, we've been committed to providing pure, safe drinking water 
+              to homes and businesses. Our mission is simple: ensure every drop counts.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="border-b bg-off-white py-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
@@ -107,7 +104,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story Section */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -116,23 +112,23 @@ export default function AboutPage() {
                 Our Story
               </h2>
               <div className="space-y-4 text-muted-foreground">
-              <p>
-                    SV Water Solutions was founded in 2015 with a simple yet powerful vision: 
-                    to make clean, safe drinking water accessible to everyone. What started as 
-                    a small operation has grown into one of the region's most trusted water 
-                    purification companies.
-                  </p>
-                  <p>
-                    Our founder recognized the critical need for reliable water 
-                    purification solutions after witnessing water quality issues affecting families 
-                    in Telangana. With a background in engineering and a passion for public health, 
-                    he set out to create a company that would prioritize quality, service, and customer satisfaction.
-                  </p>
-                  <p>
-                    Today, we serve over 5,000 satisfied customers across residential, commercial, 
-                    and industrial sectors. Our team of 25+ experts works tirelessly to ensure that 
-                    every installation meets our high standards of excellence.
-                  </p>
+                <p>
+                  SV Water Solutions was founded in 2015 with a simple yet powerful vision: 
+                  to make clean, safe drinking water accessible to everyone. What started as 
+                  a small operation has grown into one of the region's most trusted water 
+                  purification companies.
+                </p>
+                <p>
+                  Our founder recognized the critical need for reliable water 
+                  purification solutions after witnessing water quality issues affecting families 
+                  in Telangana. With a background in engineering and a passion for public health, 
+                  he set out to create a company that would prioritize quality, service, and customer satisfaction.
+                </p>
+                <p>
+                  Today, we serve over 5,000 satisfied customers across residential, commercial, 
+                  and industrial sectors. Our team of 25+ experts works tirelessly to ensure that 
+                  every installation meets our high standards of excellence.
+                </p>
                 <p>
                   We're not just selling water purifiers – we're providing peace of mind, protecting 
                   health, and building lasting relationships with our customers.
@@ -151,7 +147,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values Section */}
       <section className="bg-off-white py-16">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="mb-12 text-center">
@@ -182,7 +177,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="mb-12 text-center">
@@ -195,7 +189,6 @@ export default function AboutPage() {
           </div>
 
           <div className="relative">
-            {/* Timeline line */}
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-aqua/20 md:left-1/2" />
 
             <div className="space-y-12">
@@ -206,7 +199,6 @@ export default function AboutPage() {
                     index % 2 === 0 ? '' : 'md:grid-flow-dense'
                   }`}
                 >
-                  {/* Content */}
                   <div className={`pl-12 md:pl-0 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:col-start-2 md:pl-12'}`}>
                     <div className="inline-block rounded-full bg-aqua px-4 py-1 text-sm font-semibold text-white">
                       {milestone.year}
@@ -215,14 +207,12 @@ export default function AboutPage() {
                     <p className="mt-1 text-muted-foreground">{milestone.description}</p>
                   </div>
 
-                  {/* Dot */}
                   <div className="absolute left-4 top-0 -translate-x-1/2 md:left-1/2">
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-aqua">
                       <div className="h-3 w-3 rounded-full bg-white" />
                     </div>
                   </div>
 
-                  {/* Empty space for alternating layout */}
                   <div className={index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1'} />
                 </div>
               ))}
@@ -231,42 +221,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-        {/* Certifications Section */}
-        <section className="bg-off-white py-16">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-charcoal md:text-4xl">
-                Certifications & Awards
-              </h2>
-              <p className="mx-auto max-w-2xl text-muted-foreground">
-                Recognized for quality and excellence in water purification
-              </p>
-            </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <Card key={member.name} className="overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <div className="relative aspect-square">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardContent className="p-6 text-center">
-                  <h3 className="mb-1 text-xl font-semibold text-charcoal">{member.name}</h3>
-                  <p className="mb-2 text-sm font-medium text-aqua">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Section */}
-      <section className="py-16">
+      <section className="bg-off-white py-16">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold text-charcoal md:text-4xl">
@@ -290,7 +245,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="bg-gradient-to-r from-aqua to-aqua-dark py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center lg:px-8">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
@@ -303,9 +257,9 @@ export default function AboutPage() {
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">Get in Touch</Link>
             </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-charcoal transition-all" asChild>
-                <Link href="/water-purifiers">Explore Products</Link>
-              </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-charcoal transition-all" asChild>
+              <Link href="/water-purifiers">Explore Products</Link>
+            </Button>
           </div>
         </div>
       </section>
