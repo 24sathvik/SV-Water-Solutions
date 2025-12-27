@@ -12,7 +12,6 @@ import { Separator } from '@/components/ui/separator'
 import {
   Star,
   Check,
-  Heart,
   Share2,
   Truck,
   Shield,
