@@ -253,14 +253,14 @@ export default function AboutPage() {
           <p className="mb-8 text-lg">
             Experience the SV Water Solutions difference. Pure water, pure trust.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Button size="lg" variant="secondary" asChild>
-              <Link href="/contact">Get in Touch</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-charcoal transition-all" asChild>
-              <Link href="/water-purifiers">Explore Products</Link>
-            </Button>
-          </div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <Button size="lg" variant="secondary" className="bg-white text-aqua hover:bg-gray-100" asChild>
+                <Link href="/contact">Get in Touch</Link>
+              </Button>
+              <Button size="lg" variant="ghost" className="border-2 border-white text-white hover:bg-white hover:text-aqua transition-all" asChild>
+                <Link href="/water-purifiers">Explore Products</Link>
+              </Button>
+            </div>
         </div>
       </section>
     </main>
