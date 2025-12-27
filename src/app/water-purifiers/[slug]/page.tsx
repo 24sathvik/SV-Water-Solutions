@@ -209,15 +209,12 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   </Button>
                 </div>
 
-                <div className="mb-6 flex gap-3">
-                  <Button size="lg" variant="outline" className="flex-1">
-                    <Heart className="mr-2 h-5 w-5" />
-                    Add to Wishlist
-                  </Button>
-                  <Button size="lg" variant="outline" className="px-6">
-                    <Share2 className="h-5 w-5" />
-                  </Button>
-                </div>
+<div className="mb-6">
+                    <Button size="lg" variant="outline" className="w-full">
+                      <Share2 className="mr-2 h-5 w-5" />
+                      Share Product
+                    </Button>
+                  </div>
 
                 <div className="grid grid-cols-3 gap-4 rounded-lg bg-off-white p-4">
                   <div className="text-center">
