@@ -128,13 +128,14 @@ export default function Testimonials() {
 
                   <div className="flex items-center gap-4">
                     <div className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-aqua/20">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        fill
-                        loading="lazy"
-                        className="object-cover"
-                      />
+<Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          fill
+                          loading="lazy"
+                          sizes="48px"
+                          className="object-cover"
+                        />
                     </div>
                     <div>
                       <div className="font-semibold">{testimonial.name}</div>
