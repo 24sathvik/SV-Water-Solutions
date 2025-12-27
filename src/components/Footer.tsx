@@ -128,21 +128,21 @@ export default function Footer() {
             <p className="text-sm text-gray-400">
               &copy; {new Date().getFullYear()} SV Water Solutions. All rights reserved.
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="text-gray-400 transition-colors hover:text-aqua"
-                    aria-label={social.name}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                )
-              })}
-            </div>
+<div className="flex gap-4">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      className="flex items-center justify-center h-12 w-12 rounded-full bg-white/10 text-gray-400 transition-all duration-300 hover:text-white hover:bg-aqua hover:scale-110"
+                      aria-label={social.name}
+                    >
+                      <Icon className="h-6 w-6" />
+                    </a>
+                  )
+                })}
+              </div>
           </div>
         </div>
       </div>
