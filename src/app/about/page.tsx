@@ -16,11 +16,11 @@ import {
 } from 'lucide-react'
 
 const milestones = [
-  { year: '2008', title: 'Company Founded', description: 'Started with a vision to provide clean water' },
-  { year: '2012', title: '1,000 Customers', description: 'Reached our first major milestone' },
-  { year: '2016', title: 'Industry Recognition', description: 'Awarded "Best Water Solutions Provider"' },
-  { year: '2020', title: '10,000+ Installations', description: 'Served over 10,000 happy customers' },
-  { year: '2024', title: 'National Expansion', description: 'Now serving customers across the nation' }
+  { year: '2015', title: 'Company Founded', description: 'Started with a vision to provide clean water' },
+  { year: '2017', title: '500 Customers', description: 'Reached our first major milestone' },
+  { year: '2019', title: 'Industry Recognition', description: 'Awarded "Best Water Solutions Provider"' },
+  { year: '2022', title: '3,000+ Installations', description: 'Served over 3,000 happy customers' },
+  { year: '2024', title: 'Regional Expansion', description: 'Now serving customers across Telangana' }
 ]
 
 const values = [
