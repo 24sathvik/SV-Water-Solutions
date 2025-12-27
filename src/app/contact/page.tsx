@@ -350,15 +350,16 @@ export default function ContactPage() {
             <Card className="mt-6">
               <CardContent className="p-0">
                 <div className="aspect-video w-full overflow-hidden rounded-lg">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2176616257956!2d-73.98784368459395!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
+<iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60786.35776427!2d79.13824!3d17.12685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbaa2b2b2b2b2b%3A0x2b2b2b2b2b2b2b2b!2sJangaon%2C%20Telangana!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="SV Water Solutions Location - Jangaon, Telangana"
+                    />
                 </div>
               </CardContent>
             </Card>
