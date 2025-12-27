@@ -101,16 +101,16 @@ export default function AboutPage() {
           />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="max-w-3xl">
-            <Badge className="mb-4 bg-aqua text-white">Est. 2008</Badge>
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
-              About SV Water Solutions
-            </h1>
-            <p className="text-lg text-gray-300 md:text-xl">
-              For over 15 years, we've been committed to providing pure, safe drinking water 
-              to homes and businesses. Our mission is simple: ensure every drop counts.
-            </p>
-          </div>
+            <div className="max-w-3xl">
+              <Badge className="mb-4 bg-aqua text-white">Est. 2015</Badge>
+              <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
+                About SV Water Solutions
+              </h1>
+              <p className="text-lg text-gray-300 md:text-xl">
+                For over 10 years, we've been committed to providing pure, safe drinking water 
+                to homes and businesses. Our mission is simple: ensure every drop counts.
+              </p>
+            </div>
         </div>
       </section>
 
