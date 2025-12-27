@@ -516,9 +516,9 @@ export const products: Product[] = [
     originalPrice: 13999,
     rating: 4.3,
     reviews: 2567,
-    image: '/products/glruksrg5s0fq4x5g1ce.webp',
+    image: '/products/aquasure-champ-7l-ro.webp',
     images: [
-      '/products/glruksrg5s0fq4x5g1ce.webp',
+      '/products/aquasure-champ-7l-ro.webp',
       '/products/aquasure-amrit-uv-uf.webp',
     ],
     badge: 'Budget Friendly',
@@ -558,7 +558,7 @@ export const products: Product[] = [
     image: '/products/aquasure-amrit-uv-uf.webp',
     images: [
       '/products/aquasure-amrit-uv-uf.webp',
-      '/products/glruksrg5s0fq4x5g1ce.webp',
+      '/products/aquasure-champ-7l-ro.webp',
     ],
     badge: 'For Municipal Water',
     sku: 'AS-AMRIT-UV-UF',
