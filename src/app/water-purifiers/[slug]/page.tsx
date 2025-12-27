@@ -349,19 +349,19 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                       </CardContent>
                     </Link>
                     <div className="px-4 pb-4">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-full border-green-500 text-green-600 hover:bg-green-50"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          const msg = encodeURIComponent(`Hi, I'm interested in ${relatedProduct.name}. Please share details.`)
-                          window.open(`https://wa.me/918297612490?text=${msg}`, '_blank')
-                        }}
-                      >
-                        <MessageCircle className="mr-2 h-4 w-4" />
-                        Enquire
-                      </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full border-green-500 text-green-600 hover:bg-green-600 hover:text-white hover:border-green-600 transition-all"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            const msg = encodeURIComponent(`Hi, I'm interested in ${relatedProduct.name}. Please share details.`)
+                            window.open(`https://wa.me/918297612490?text=${msg}`, '_blank')
+                          }}
+                        >
+                          <MessageCircle className="mr-2 h-4 w-4" />
+                          Enquire
+                        </Button>
                     </div>
                   </Card>
                 ))}

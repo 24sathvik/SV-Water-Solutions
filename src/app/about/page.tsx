@@ -330,9 +330,9 @@ export default function AboutPage() {
             <Button size="lg" variant="secondary" asChild>
               <Link href="/contact">Get in Touch</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <Link href="/water-purifiers">Explore Products</Link>
-            </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-charcoal transition-all" asChild>
+                <Link href="/water-purifiers">Explore Products</Link>
+              </Button>
           </div>
         </div>
       </section>
