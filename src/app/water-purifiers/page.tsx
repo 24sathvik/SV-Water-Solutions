@@ -224,14 +224,14 @@ export default function WaterPurifiersPage() {
                     <Button className="w-full bg-charcoal text-white hover:bg-charcoal/90" asChild>
                       <Link href={`/water-purifiers/${product.slug}`}>View Details</Link>
                     </Button>
-                    <Button 
-                      variant="outline"
-                      className="w-full border-green-500 text-green-600 hover:bg-green-50"
-                      onClick={() => handleEnquiry(product.name)}
-                    >
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      Enquire Now
-                    </Button>
+                      <Button 
+                        variant="outline"
+                        className="w-full border-green-500 text-green-600 hover:bg-green-600 hover:text-white hover:border-green-600 transition-all"
+                        onClick={() => handleEnquiry(product.name)}
+                      >
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        Enquire Now
+                      </Button>
                   </CardFooter>
                 </Card>
               ))}
