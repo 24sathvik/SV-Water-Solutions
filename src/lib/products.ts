@@ -842,7 +842,7 @@ export const products: Product[] = [
     image: '/products/whole-house-water-softener-2000l.webp',
     images: [
       '/products/whole-house-water-softener-2000l.webp',
-      '/products/wshflbdmhbeyi1iral5j.webp',
+      '/products/whole-house-water-softener-alt.webp',
     ],
     badge: 'Whole House',
     sku: 'WS-WHOLE-HOUSE-2K',
